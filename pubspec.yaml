@@ -4,7 +4,7 @@ description: A new Flutter application.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 1.2.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -35,20 +35,7 @@ dependencies:
   google_fonts: any
   email_validator: ^2.0.1
   cached_network_image: any
-  animated_text_kit: ^4.2.1
-  connectivity_plus: any
-  curved_navigation_bar: ^1.0.1
-  url_launcher: 5.7.2
-#  flutter_native_splash: ^1.2.0
-#  flutter_launcher_icons: "^0.8.0"
 
-#flutter_icons:
-#  android: "launcher_icon"
-#  ios: true
-#  image_path: "images/icon.png"
-
-#flutter_native_splash:
-#  background_image: "images/splash.png"
 
 dev_dependencies:
   flutter_test:
