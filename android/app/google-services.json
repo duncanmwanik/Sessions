@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "202330746344",
+    "project_id": "sessions-apps",
+    "storage_bucket": "sessions-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202330746344:android:995494ad101251fe78885d",
+        "android_client_info": {
+          "package_name": "com.sessions.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202330746344-089ad2jf10njqku5sjckppruhrkcb5re.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe0d6v6KYh_lj3fUEKErouS2ycdIeeUeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202330746344-089ad2jf10njqku5sjckppruhrkcb5re.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
