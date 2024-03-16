@@ -1,0 +1,110 @@
+name: sessions
+description: A collaborative timetable.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # services & api
+  firebase_core: ^2.1.1
+  firebase_auth: ^4.1.0
+  firebase_database: ^10.2.1
+  firebase_storage: ^11.4.1
+  google_sign_in: ^6.1.4
+
+  # data store
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # files
+  file_picker: ^6.1.1
+  open_filex: ^4.3.4
+
+  # files
+  flutter_tts: ^3.8.5
+
+  # state
+  provider: ^6.0.3
+  get_it: ^7.6.4
+
+  # navigation
+  go_router: ^9.0.0
+
+  # style & assets
+  flutter_svg: ^2.0.9
+  font_awesome_flutter: ^10.5.0
+  responsive_sizer: ^3.1.1
+  syncfusion_flutter_datepicker: ^23.1.44
+  flutter_staggered_grid_view: ^0.6.2
+  styled_text: ^8.1.0
+  sliver_tools: ^0.2.12
+  just_the_tooltip: ^0.0.12
+  scrollable_positioned_list: ^0.3.8
+  flutter_keyboard_visibility: ^6.0.0
+  flutter_spinkit: ^5.2.0
+
+  # notifications
+  awesome_notifications: 0.7.4+1
+  bot_toast: ^4.0.4
+
+  # others
+  collection: ^1.17.1
+  url_launcher: ^6.1.10
+  intl: ^0.18.1
+  # http: ^1.1.0
+  requests: ^4.7.0
+  permission_handler: ^11.0.1
+
+dependency_overrides:
+  intl: 0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  change_app_package_name: ^1.1.0
+  flutter_native_splash: ^2.2.19
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit/Outfit-Black.ttf
+        - asset: assets/fonts/Outfit/Outfit-ExtraBold.ttf
+        - asset: assets/fonts/Outfit/Outfit-Bold.ttf
+        - asset: assets/fonts/Outfit/Outfit-SemiBold.ttf
+        - asset: assets/fonts/Outfit/Outfit-Medium.ttf
+        - asset: assets/fonts/Outfit/Outfit-Regular.ttf
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  color_dark: "#212529"
+  image: "assets/images/trw.png"
+  fullscreen: true
+#
+# dart run flutter_launcher_icons:main
+# dart run flutter_native_splash:create
+# dart run change_app_package_name:main com.sayari.app
+

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "225853059005",
+    "firebase_url": "https://trysayari-default-rtdb.firebaseio.com",
+    "project_id": "trysayari",
+    "storage_bucket": "trysayari.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225853059005:android:dc8786152cb796b144acd4",
+        "android_client_info": {
+          "package_name": "com.sayari.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYsdacVwE_Bj-lIhyQ3yARME5ShLiJ2yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

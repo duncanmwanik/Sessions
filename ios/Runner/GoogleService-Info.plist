@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>202330746344-l5qnbrjpu9170ufgvjsfjjiv6n0vbcen.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.202330746344-l5qnbrjpu9170ufgvjsfjjiv6n0vbcen</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDJ3_3gW0xSJ0KedJqNa6A7rPWdRquKkco</string>
+	<key>GCM_SENDER_ID</key>
+	<string>202330746344</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sessions.app</string>
+	<key>PROJECT_ID</key>
+	<string>sessions-apps</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sessions-apps.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:202330746344:ios:99a13b6aa03ff72878885d</string>
+	<key>DATABASE_URL</key>
+	<string>https://sessions-apps-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
