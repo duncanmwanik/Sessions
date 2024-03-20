@@ -30,6 +30,7 @@ Future<void> signInUsingEmailPassword(
       // we save user data locally and go to homepage
       if (user != null) {
         await updateUserDetailsLocal(user.uid, user.displayName ?? 'Professor X', email);
+        // we go to homepage
         context.go('/');
       }
 

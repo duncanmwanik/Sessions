@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sessions/_helpers/_common_helpers/global_helper.dart';
 import 'package:sessions/_widgets/components/buttons.dart';
 import 'package:sessions/_widgets/components/icons.dart';
+import 'package:sessions/_widgets/components/toast.dart';
 import 'package:sessions/_widgets/components/tooltip.dart';
 import 'package:sessions/features/_sessions/_helpers/session_helpers.dart';
+import 'package:sessions/features/_tables/_helpers/checks_table.dart';
 
 import '../../_config/styling/spacing.dart';
 import '../../_providers/common_providers/views_provider.dart';
@@ -38,6 +41,26 @@ class WebCreator extends StatelessWidget {
                 isRound: true,
                 child: AppIcon(Icons.add_circle_rounded, tiny: true),
                 onPressed: () {
+                  if (isThereATableSelected()) {
+                    if (isSessionView) {
+                      prepareSessionCreation();
+                    }
+                    if (isBoardView) {
+                      showCreateListDialog();
+                    }
+                    if (isNoteView) {
+                      prepareTaskForCreation();
+                    }
+                  } else {
+                    showToast(2, 'Select a table first...');
+                    openDrawer();
+                  }
+                },
+              ),
+            )
+          : AppButton(
+              onPressed: () {
+                if (isThereATableSelected()) {
                   if (isSessionView) {
                     prepareSessionCreation();
                   }
@@ -47,19 +70,9 @@ class WebCreator extends StatelessWidget {
                   if (isNoteView) {
                     prepareTaskForCreation();
                   }
-                },
-              ),
-            )
-          : AppButton(
-              onPressed: () {
-                if (isSessionView) {
-                  prepareSessionCreation();
-                }
-                if (isBoardView) {
-                  showCreateListDialog();
-                }
-                if (isNoteView) {
-                  prepareTaskForCreation();
+                } else {
+                  showToast(2, 'Select a table first...');
+                  openDrawer();
                 }
               },
               child: Row(

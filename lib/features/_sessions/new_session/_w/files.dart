@@ -25,7 +25,7 @@ class NewSessionFiles extends StatelessWidget {
               //
               //
               //
-              AppIcon(Icons.attach_file_rounded, faded: true),
+              AppIcon(Icons.attach_file_rounded, faded: true, size: 18),
               smallSpacerWidth(),
               //
               //
@@ -36,7 +36,7 @@ class NewSessionFiles extends StatelessWidget {
                   },
                   child: Row(
                     children: [
-                      AppIcon(Icons.add_rounded, size: 19),
+                      AppIcon(Icons.add_rounded, size: 16),
                       tinySpacerWidth(),
                       AppText(size: medium, text: 'Attach Files'),
                     ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_widgets/components/toast.dart';
 import 'package:sessions/features/welcome/_w/intro_text.dart';
 
@@ -23,6 +24,7 @@ class OnboardingView4 extends StatelessWidget {
         //
         //
         ActionButton(
+          color: styler.white,
           label: 'Continue with Google',
           imagePath: 'assets/images/google.png',
           // onPressed: () => signInWithGoogle(),
@@ -35,6 +37,7 @@ class OnboardingView4 extends StatelessWidget {
         //
         //
         ActionButton(
+          color: styler.white,
           label: 'Continue with Apple',
           imagePath: 'assets/images/apple.png',
           // onPressed: () => signInWithApple(),
@@ -47,6 +50,7 @@ class OnboardingView4 extends StatelessWidget {
         //
         //
         ActionButton(
+          color: styler.white,
           label: 'Continue with Email',
           imagePath: 'assets/images/email.png',
           onPressed: () => context.push('/emailauth'),

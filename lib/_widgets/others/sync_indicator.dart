@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:sessions/_widgets/components/icons.dart';
+import 'package:sessions/_widgets/others/other_widgets.dart';
 
 import '../../_services/hive/local_storage_service.dart';
 
@@ -44,9 +46,9 @@ class _CloudSyncIndicatorState extends State<CloudSyncIndicator> with TickerProv
           return showLoader
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: RotationTransition(turns: animation, child: Icon(FontAwesomeIcons.rotate, size: 18)),
+                  child: RotationTransition(turns: animation, child: AppIcon(FontAwesomeIcons.rotate, faded: true, size: 16)),
                 )
-              : SizedBox.shrink();
+              : NoWidget();
         });
   }
 }

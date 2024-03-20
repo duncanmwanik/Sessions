@@ -23,6 +23,7 @@ class TaskContent extends StatelessWidget {
         TaskTitleInput(isNewTask: false),
         //
         TaskEntries(),
+        //  NoteSuperEditor(),
         //
         NewEntryButton(),
         //

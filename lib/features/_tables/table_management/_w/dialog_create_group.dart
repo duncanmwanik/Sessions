@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../_helpers/user/user_actions.dart';
-import '../../../../_widgets/dialogs/action_buttons.dart';
 import '../../../../_widgets/dialogs/app_dialog.dart';
+import '../../../../_widgets/dialogs/dialog_buttons.dart';
 import 'input_text.dart';
 
 Future<dynamic> showCreateGroupDialog() {

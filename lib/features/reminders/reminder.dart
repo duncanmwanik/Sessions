@@ -4,6 +4,7 @@ import 'package:sessions/_config/styling/spacing.dart';
 import 'package:sessions/_widgets/components/text_styles.dart';
 import 'package:sessions/features/_lists/_helpers/list_item/edit_list_item.dart';
 
+import '../../_config/styling/helpers.dart';
 import '../../_config/styling/styler.dart';
 import '../../_helpers/date_time/reminders.dart';
 import '../../_helpers/edits/edit_item_extras.dart';
@@ -94,7 +95,7 @@ class Reminder extends StatelessWidget {
           AppIcon(
             Icons.notifications_active,
             size: 14,
-            color: hasPassed ? styler.textColorFaded(bgColor) : styler.textColor(bgColor),
+            color: hasPassed ? styler.textColorFaded(inverted: hasBGColor(bgColor)) : styler.textColor(inverted: hasBGColor(bgColor)),
           ),
           //
           tinySpacerWidth(),
@@ -106,7 +107,7 @@ class Reminder extends StatelessWidget {
             child: AppText(
               size: small,
               text: getFormattedSingleReminder(reminder),
-              textColor: hasPassed ? styler.textColorFaded(bgColor) : styler.textColor(bgColor),
+              textColor: hasPassed ? styler.textColorFaded(inverted: hasBGColor(bgColor)) : styler.textColor(inverted: hasBGColor(bgColor)),
               isCrossed: hasPassed,
               overflow: TextOverflow.visible,
             ),

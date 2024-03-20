@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:requests/requests.dart';
 import 'package:sessions/_config/styling/breakpoints.dart';
 import 'package:sessions/_config/styling/spacing.dart';
 import 'package:sessions/features/explore/_w/explore_box.dart';
 import 'package:sessions/features/pomodoro/pomodoro_sheet.dart';
 import 'package:sessions/features/tts/tts_sheet.dart';
+
+import '../../_widgets/components/toast.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -45,13 +46,7 @@ class _ExploreViewState extends State<ExploreView> {
               icon: Icons.keyboard_voice_rounded,
               iconColor: Colors.blueAccent,
               onPressed: () async {
-                // hasAccessToInternet();
-                // showToast(1, 'Heyyy');
-                var r = await Requests.get('https://google.com');
-                r.raiseForStatus();
-                String body = r.content();
-
-                print(body);
+                showToast(1, 'Heyyy');
               },
             ),
             //

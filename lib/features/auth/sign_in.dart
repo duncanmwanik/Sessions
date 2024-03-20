@@ -5,6 +5,7 @@ import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_providers/_provider_variables.dart';
 
 import '../../_config/styling/spacing.dart';
+import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_widgets/components/buttons.dart';
 import '../../_widgets/components/text_styles.dart';
 import '../../_widgets/forms/email.dart';
@@ -55,6 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
           // Sign In Button
           //
           ActionButton(
+            color: styler.white,
             label: 'Sign In',
             showLoading: isSigningIn,
             onPressed: () async {
@@ -63,6 +65,7 @@ class _SignInScreenState extends State<SignInScreen> {
               // that's why we set IsSigningIn to true
               if (!isSigningIn) {
                 setState(() => isSigningIn = true);
+                hideKeyboard();
 
                 // await is important, it ensures we see a progress indicator while signing in is in progress
                 await signInUsingEmailPassword(context, email: emailController.text, password: passwordController.text);
@@ -81,6 +84,7 @@ class _SignInScreenState extends State<SignInScreen> {
           //
           //
           ActionButton(
+            color: styler.white,
             label: 'Create Account',
             iconData: Icons.person_add_rounded,
             onPressed: isSigningIn ? null : () => authProviderX.updateSelectedAuthView(1),

@@ -33,8 +33,8 @@ class ColorObject {
 }
 
 const List<ColorObject> sessionColorList = [
-  ColorObject(color: Colors.blue, textColor: Colors.white),
   ColorObject(color: Colors.red, textColor: Colors.white),
+  ColorObject(color: Colors.blue, textColor: Colors.white),
   ColorObject(color: Colors.green, textColor: Colors.white),
   ColorObject(color: Colors.orange, textColor: Colors.white),
   ColorObject(color: Colors.purple, textColor: Colors.white),
@@ -175,4 +175,4 @@ Map<String, String> defaultPomodoroMap = {
 
 Map<String, String> pomodoroTitles = {'focus': 'Focus', 'break': 'Break', 'longBreak': 'Long Break'};
 
-List<String> themeImages = ['light', 'dark', 'mars', 'jupiter'];
+Map<String, String> themeImages = {'light': 'light', 'dark': 'dark', 'mars': 'dark', 'jupiter': 'dark'};

@@ -20,7 +20,7 @@ class NewSessionTimePicker extends StatelessWidget {
           //
           //
           //
-          AppIcon(FontAwesomeIcons.solidClock, faded: true),
+          AppIcon(FontAwesomeIcons.solidClock, faded: true, size: 18),
           //
           smallSpacerWidth(),
           //
@@ -29,7 +29,6 @@ class NewSessionTimePicker extends StatelessWidget {
           Flexible(
             child: Wrap(
               spacing: smallWidth(),
-              // runSpacing: smallWidth(),
               children: [
                 //
                 //

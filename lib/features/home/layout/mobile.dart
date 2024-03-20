@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../_helpers/_common_helpers/theme_helper.dart';
 import '../../../_variables/navigation_variables.dart';
 import '../../_chat/chat_view.dart';
 import '../../_lists/list_view.dart';
@@ -17,16 +18,24 @@ class HomeMobilelayout extends StatefulWidget {
 class _HomeMobilelayoutState extends State<HomeMobilelayout> {
   @override
   Widget build(BuildContext context) {
-    return TabBarView(
-      controller: homeTabController,
-      physics: NeverScrollableScrollPhysics(),
-      children: [
-        SessionViewSelector(),
-        NTViewChooser(),
-        BoardView(),
-        ChatView(),
-        ExploreView(),
-      ],
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(getDefaultThemeImage()),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: TabBarView(
+        controller: homeTabController,
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          SessionViewSelector(),
+          NTViewChooser(),
+          BoardView(),
+          ChatView(),
+          ExploreView(),
+        ],
+      ),
     );
   }
 }

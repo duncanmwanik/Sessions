@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sessions/_config/styling/spacing.dart';
 import 'package:sessions/_widgets/components/text_styles.dart';
-import 'package:sessions/_widgets/dialogs/action_buttons.dart';
+import 'package:sessions/_widgets/dialogs/dialog_buttons.dart';
 import 'package:sessions/_widgets/menus/app_popup_menu.dart';
 
 import '../../../../_widgets/components/icons.dart';
+import '../../../_config/styling/helpers.dart';
+import '../../../_config/styling/styler.dart';
 import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../_helpers/list_item/delete_list_item.dart';
 
@@ -23,6 +25,7 @@ class _DeleteItemState extends State<DeleteItem> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey menuKey = GlobalKey();
+    bool isColorInverted = hasBGColor(widget.bgColor) || isImageTheme();
 
     return AppPopupMenu(
       //
@@ -33,7 +36,7 @@ class _DeleteItemState extends State<DeleteItem> {
         Icons.delete_rounded,
         tooltip: 'Delete',
         size: 18,
-        faded: true,
+        color: styler.textColorFaded(inverted: isColorInverted),
       ),
       //
       menuItems: [

@@ -18,12 +18,14 @@ class WebCalendar extends StatelessWidget {
           height: 220,
           child: SfDateRangePicker(
             showNavigationArrow: true,
-            headerStyle: DateRangePickerHeaderStyle(textStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: medium)),
+            headerStyle: DateRangePickerHeaderStyle(textStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: medium, color: styler.textColorFaded())),
             monthCellStyle: DateRangePickerMonthCellStyle(
               textStyle: TextStyle(fontWeight: FontWeight.w100, color: styler.textColorFaded(), fontSize: tiny),
               todayTextStyle: TextStyle(fontWeight: FontWeight.w500, color: styler.textColorFaded(), fontSize: tiny),
+              todayCellDecoration: BoxDecoration(border: Border.all(color: styler.accentColor()), shape: BoxShape.circle),
             ),
             selectionTextStyle: TextStyle(fontWeight: FontWeight.w500, color: styler.white, fontSize: tiny),
+            selectionColor: styler.accentColor(),
             selectionShape: DateRangePickerSelectionShape.circle,
             selectionMode: DateRangePickerSelectionMode.single,
             initialSelectedDate: DateTime.parse(dateProvider.selectedDate),

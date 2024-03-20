@@ -28,7 +28,7 @@ class _PasswordFormInputState extends State<PasswordFormInput> {
       style: TextStyle(fontSize: textSizeNormal, fontWeight: FontWeight.w500),
       decoration: InputDecoration(
           hintText: widget.hintText,
-          labelText: widget.hintText,
+          // labelText: widget.hintText,
           hintStyle: TextStyle(fontSize: textSizeMedium, color: styler.textColorFaded()),
           labelStyle: TextStyle(fontSize: textSizeMedium, color: styler.textColorFaded()),
           floatingLabelStyle: TextStyle(fontSize: textSizeSmall, color: styler.textColorFaded()),

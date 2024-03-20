@@ -40,24 +40,23 @@ class SelectedItemOptions extends StatelessWidget {
           //
           if (selectionProvider.selectedItemMap.isNotEmpty)
             AppButton(
+              onPressed: () => clearItemSelection(),
+              noStyling: true,
               child: Row(
                 children: [
                   // Clear Selection
-                  AppIcon(Icons.close_rounded, faded: true),
+                  AppIcon(Icons.close_rounded, faded: true, size: 18),
                   //
                   smallSpacerWidth(),
                   //
                   // Shows No of selected items
                   AppText(
-                    size: normal,
                     text: '${selectionProvider.selectedItemMap.length}',
                     textColor: styler.textColorFaded(),
-                    fontWeight: FontWeight.w700,
                   ),
                   //
                 ],
               ),
-              onPressed: () => clearItemSelection(),
             ),
           //
           //
@@ -98,6 +97,7 @@ class SelectedItemOptions extends StatelessWidget {
                       },
                       Icons.label_outlined,
                       faded: true,
+                      tiny: true,
                       tooltip: 'Labels',
                     ),
                     //
@@ -122,6 +122,7 @@ class SelectedItemOptions extends StatelessWidget {
                       },
                       Icons.notifications_none,
                       faded: true,
+                      tiny: true,
                       tooltip: 'Reminder',
                     ),
                     //
@@ -146,6 +147,7 @@ class SelectedItemOptions extends StatelessWidget {
                       },
                       Icons.palette_outlined,
                       faded: true,
+                      tiny: true,
                       tooltip: 'Color',
                     ),
                     //
@@ -167,6 +169,7 @@ class SelectedItemOptions extends StatelessWidget {
                       },
                       Icons.push_pin_outlined,
                       faded: true,
+                      tiny: true,
                       tooltip: 'Pin Items',
                     ),
                     //
@@ -188,6 +191,7 @@ class SelectedItemOptions extends StatelessWidget {
                         },
                         isArchive ? Icons.unarchive_outlined : Icons.archive_outlined,
                         faded: true,
+                        tiny: true,
                         tooltip: isArchive ? 'Unarchive' : 'Archive',
                       ),
                     //
@@ -203,6 +207,7 @@ class SelectedItemOptions extends StatelessWidget {
                         },
                         Icons.delete_outlined,
                         faded: true,
+                        tiny: true,
                         tooltip: 'Delete',
                       ),
                   ],
@@ -249,6 +254,7 @@ class SelectedItemOptions extends StatelessWidget {
                   },
                   Icons.delete_forever_rounded,
                   faded: true,
+                  tiny: true,
                   tooltip: 'Delete Forever',
                 ),
               //

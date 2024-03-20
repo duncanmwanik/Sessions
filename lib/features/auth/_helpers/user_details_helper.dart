@@ -13,7 +13,7 @@ Future<void> isFirstTimeUserOnApp() async {
     if (!isFirstTimeUser) {
       await Hive.openBox(getCurrentUserId());
     }
-    changeStatusAndNavigationBarColor(getTheme());
+    changeStatusAndNavigationBarColor(getThemeType());
   } catch (_) {
     //
   }
@@ -21,4 +21,8 @@ Future<void> isFirstTimeUserOnApp() async {
 
 bool isFirstTimeUser() {
   return globalBox.get('isFirstTimeUser', defaultValue: true);
+}
+
+void updateIsFirstTimeUser(bool value) {
+  globalBox.put('isFirstTimeUser', value);
 }

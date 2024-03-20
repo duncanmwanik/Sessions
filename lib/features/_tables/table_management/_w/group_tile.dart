@@ -21,6 +21,7 @@ class GroupTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
+      color: styler.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadiusSmall),
         side: styler.lightTableBorder(),

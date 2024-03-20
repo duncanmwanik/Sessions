@@ -4,35 +4,36 @@ import 'package:sessions/_config/styling/styler.dart';
 import 'helpers.dart';
 
 class AppColors {
-  static const Color accent = Colors.blue;
+  static const Color accent = Colors.red;
 
   static Color accentHoverButton = Colors.grey;
-
-  static Color lightHover = Colors.grey.shade200;
-  static Color darkHover = Colors.grey.withOpacity(0.1);
 
   static const Color cursorColor = Colors.lightBlueAccent;
 
   static const Color transparent = Colors.transparent;
 
-  static Color fabColor = Colors.blueGrey;
+  static Color fabColor = accent;
 
-  static const Color darkPrimary = Color(0xff212529);
-  static const Color lightPrimary = Colors.white;
+  static const Color darkPrimary = Color(0xff1b1d1c);
+  static const Color lightPrimary = Color(0xfffafafc);
 
-  static const Color darkSecondary = Color(0xff343a40);
-  static Color lightSecondary = Colors.white;
+  static const Color darkSecondary = Color(0xff272829);
+  static const Color lightSecondary = Color(0xfff1f1f2);
+
+  static const Color darkTertiary = Color(0xff282a29);
+  static const Color lightTertiary = lightSecondary;
+
+  static Color lightHover = Colors.grey.withOpacity(0.2);
+  static Color darkHover = Colors.grey.withOpacity(0.1);
 
   static const Color darkBar = Color(0xff212529);
   static const Color lightBar = Colors.white;
 
-  static const Color darkTertiary = Color(0xff495057);
-
   static const Color darkText = Colors.white;
   static const Color lightText = Color(0xff333333);
 
-  static const Color darkTextFaded = Colors.white54;
-  static const Color lightTextFaded = Color(0xff686b6e);
+  static Color darkTextFaded = Colors.white.withOpacity(0.7);
+  static Color lightTextFaded = Color(0xff333333).withOpacity(0.8);
 
   static const Color darkDividerColor = Colors.white12;
   static const Color lightDividerColor = Colors.black12;
@@ -40,8 +41,8 @@ class AppColors {
   static const Color darkBottomNavBarColor = Color(0xff2f2f2f);
   static const Color lightBottomNavBarColor = Color(0xfff7f7f7);
 
-  static Color darkTextSelectionColor = Colors.blue;
-  static Color lightTextSelectionColor = Colors.blue.shade100;
+  static Color darkTextSelectionColor = accent;
+  static Color lightTextSelectionColor = accent;
 
   static List<Color> toastColors = [Colors.red, Colors.green, Colors.blue];
 }
@@ -68,20 +69,24 @@ class CustomAppColors {
     return isDarkTheme ? AppColors.darkPrimary : AppColors.lightPrimary;
   }
 
-  Color secondaryColor() {
-    return isDarkTheme ? AppColors.darkSecondary : AppColors.lightSecondary;
+  Color secondaryColor({bool inverted = false}) {
+    if (inverted) {
+      return isDarkTheme ? AppColors.lightSecondary : AppColors.darkSecondary;
+    } else {
+      return isDarkTheme ? AppColors.darkSecondary : AppColors.lightSecondary;
+    }
   }
 
   Color tertiaryColor() {
-    return isDarkTheme ? AppColors.darkTertiary : white;
+    return isDarkTheme ? AppColors.darkTertiary : AppColors.lightTertiary;
   }
 
   Color fabColor() {
     return isDarkTheme ? white : Color(0xff3f3f3f);
   }
 
-  Color hoverColor() {
-    return isDarkTheme ? AppColors.darkHover : AppColors.lightHover;
+  Color buttonColor() {
+    return appColor(1.5);
   }
 
   Color itemColor({bool isDialog = false, String? bgColor}) {
@@ -96,20 +101,28 @@ class CustomAppColors {
     }
   }
 
+  Color appColor(double weight) {
+    return Colors.grey.withOpacity(weight / 10);
+  }
+
+  Color menuColor() {
+    return isDarkTheme ? Color(0xff343434) : Color(0xfff5f5f5);
+  }
+
   //
   // -------------------------- Text Colors
   //
-  Color textColor([String? bgColor]) {
-    if (hasBGColor(bgColor)) {
-      return Colors.black87;
+  Color textColor({bool inverted = false}) {
+    if (inverted) {
+      return AppColors.lightText;
     } else {
       return isDarkTheme ? AppColors.darkText : AppColors.lightText;
     }
   }
 
-  Color textColorFaded([String? bgColor]) {
-    if (hasBGColor(bgColor)) {
-      return Colors.black87;
+  Color textColorFaded({bool inverted = false}) {
+    if (inverted) {
+      return AppColors.lightTextFaded;
     } else {
       return isDarkTheme ? AppColors.darkTextFaded : AppColors.lightTextFaded;
     }
@@ -122,13 +135,8 @@ class CustomAppColors {
   //
   // -------------------------- Other Colors
   //
-
-  Color appbarColor() {
-    return AppColors.darkSecondary.withOpacity(isDarkTheme ? 0.3 : 0.05);
-  }
-
   Color tooltipColor() {
-    return isDarkTheme ? AppColors.lightPrimary : AppColors.darkTertiary;
+    return isDarkTheme ? AppColors.lightTertiary : AppColors.darkTertiary;
   }
 
   Color dialogButtonColor({bool isCancel = false}) {
@@ -136,11 +144,11 @@ class CustomAppColors {
         ? isDarkTheme
             ? Colors.white12
             : Colors.black38
-        : Colors.blue.shade500;
+        : AppColors.accent;
   }
 
-  Color borderColor([String? bgColor]) {
-    return Colors.blueGrey.withOpacity(0.2);
+  Color borderColor() {
+    return Colors.grey.withOpacity(0.2);
   }
 
   Color chatBubbleColor({bool isSent = false}) {
@@ -151,8 +159,8 @@ class CustomAppColors {
     }
   }
 
-  Color listItemColor([String? bgColor]) {
-    if (hasBGColor(bgColor)) {
+  Color listItemColor({bool inverted = false}) {
+    if (inverted) {
       return Color(0xfffbfbfb);
     } else {
       return isDarkTheme ? Colors.white10 : white;
@@ -161,7 +169,7 @@ class CustomAppColors {
 
   Color fileColor(String fileExtension) {
     if (['jpg', 'png', 'jpeg', 'jfif'].contains(fileExtension)) {
-      return Colors.blueAccent;
+      return accentColor();
     } else if (['pdf'].contains(fileExtension)) {
       return Colors.redAccent;
     } else {
@@ -174,14 +182,6 @@ class CustomAppColors {
       return Colors.black12;
     } else {
       return isDarkTheme ? Colors.white10 : Colors.black12;
-    }
-  }
-
-  Color hoverActionsColor([String? bgColor]) {
-    if (hasBGColor(bgColor)) {
-      return Colors.black87;
-    } else {
-      return isDarkTheme ? Color(0xffeeeeee) : Color(0xff505050);
     }
   }
 
@@ -209,17 +209,17 @@ class CustomAppColors {
           ];
   }
 
-  List<BoxShadow>? listItemShadow([String? bgColor]) {
+  List<BoxShadow>? listItemShadow({bool inverted = false}) {
     List<BoxShadow> shadow = [BoxShadow(color: Colors.grey.withOpacity(0.7), spreadRadius: 0.5)];
 
-    return hasBGColor(bgColor) || isDarkTheme ? null : shadow;
+    return inverted || isDarkTheme ? null : shadow;
   }
 
   List<BoxShadow>? itemShadow([bool isHovered = true]) {
     return [
       BoxShadow(
         color: isHovered
-            ? styler.isDarkTheme
+            ? isDarkTheme
                 ? Colors.white10
                 : Colors.black12
             : styler.transparent,
@@ -233,28 +233,26 @@ class CustomAppColors {
   //
   // -------------------------- Borders
   //
-  BoxBorder? lightBoxBorder() {
-    return isDarkTheme ? null : Border.all(color: Colors.blueGrey.withOpacity(0.3));
-  }
-
   BorderSide lightTableBorder() {
-    return BorderSide(color: Colors.grey.withOpacity(isDarkTheme ? 0.1 : 0.3));
+    return BorderSide(color: Colors.grey.withOpacity(isDarkTheme ? 0.15 : 0.4));
   }
 
   BoxBorder? itemBorder(bool isSelected, {bool hasBgColor = false}) {
     if (isSelected) {
-      return Border.all(color: accentColor(), width: 1);
+      return Border.all(color: accentColor(), width: 0.5);
     } else {
-      return Border.all(
-          color: hasBgColor
-              ? styler.transparent
-              : isDarkTheme
-                  ? Colors.grey.withOpacity(0.2)
-                  : Colors.grey.withOpacity(0.4));
+      return null;
+      //   return Border.all(
+      //       width: 0.1,
+      //       color: hasBgColor
+      //           ? styler.transparent
+      //           : isDarkTheme
+      //               ? Colors.grey.withOpacity(0.2)
+      //               : Colors.grey.withOpacity(0.4));
     }
   }
 
   BorderSide? lightButtonBorder() {
-    return isDarkTheme ? BorderSide.none : BorderSide(color: borderColor());
+    return isDarkTheme ? null : BorderSide(color: Colors.grey.withOpacity(0.1));
   }
 }

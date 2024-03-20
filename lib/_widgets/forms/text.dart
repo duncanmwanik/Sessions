@@ -19,7 +19,7 @@ class TextFormInput extends StatelessWidget {
       style: TextStyle(fontSize: textSizeNormal, fontWeight: FontWeight.w500, color: styler.textColor()),
       decoration: InputDecoration(
         hintText: hintText,
-        labelText: hintText,
+        // labelText: hintText,
         hintStyle: TextStyle(fontSize: textSizeMedium, color: styler.textColorFaded()),
         labelStyle: TextStyle(fontSize: textSizeMedium, color: styler.textColorFaded()),
         floatingLabelStyle: TextStyle(fontSize: textSizeSmall, color: styler.textColorFaded()),

@@ -47,12 +47,13 @@ String capitalizeStackTrace(String phrase) {
   return phrase.split('-').map((element) => '${element[0].toUpperCase()}${element.substring(1).toLowerCase()}').join(' ');
 }
 
-void showWelcomeToastIfFirstTime() {
+void doSomeFirstTimeWork() {
   if (isFirstTimeUser()) {
     try {
       showToast(1, 'Hello ${getCurrentUserName()}! Welcome...', duration: 6);
+      updateIsFirstTimeUser(false);
     } catch (e) {
-      showToast(1, 'Hello! Welcome over here...');
+      showToast(1, 'Welcome human...');
     }
   }
 }
@@ -153,16 +154,21 @@ bool confirmExitApp() {
   }
 }
 
+bool isImageTheme() {
+  return !['dark', 'light'].contains(themeProviderX.themeImage);
+}
+
 Color? getItemColor(String? colorNo, {bool? isHovered}) {
   try {
     if (colorNo != null && colorNo != 'x' && colorNo != '') {
       return itemBgColors[colorNo] ?? styler.itemColor();
     } else {
-      if (isHovered == true) {
-        return Colors.grey.withOpacity(styler.isDarkTheme ? 0.02 : 0.07);
-      } else {
-        return styler.primaryColor();
-      }
+      return styler.secondaryColor(inverted: isImageTheme());
+      // if (isHovered == true) {
+      //   return styler.secondaryColor();
+      // } else {
+      //   return styler.secondaryColor();
+      // }
     }
   } catch (e) {
     return styler.primaryColor();

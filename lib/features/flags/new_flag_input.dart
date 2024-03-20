@@ -99,7 +99,7 @@ class _NewFlagInputState extends State<NewFlagInput> {
                             hintStyle: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w500),
                             border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(borderRadiusSmall)),
                             filled: true,
-                            fillColor: styler.itemColor(),
+                            fillColor: styler.appColor(1),
                           ),
                         ),
                       ),
@@ -107,6 +107,7 @@ class _NewFlagInputState extends State<NewFlagInput> {
                   ],
                 ),
                 //
+                smallSpacerHeight(),
                 //
                 //
                 Row(

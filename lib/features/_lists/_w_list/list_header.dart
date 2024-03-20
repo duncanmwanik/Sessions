@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../_config/styling/helpers.dart';
 import '../../../_config/styling/styler.dart';
+import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_helpers/edits/edit_item_extras.dart';
 import '../../../_providers/common_providers/item_selection_provider.dart';
 import '../../../_widgets/components/icons.dart';
@@ -31,6 +33,7 @@ class ListHeader extends StatelessWidget {
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isSelection = selectionProvider.selectedItemMap.isNotEmpty;
+      bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
       return InkWell(
         onTap: isTableAdmin()
@@ -67,7 +70,7 @@ class ListHeader extends StatelessWidget {
               child: AppText(
                 size: appBar,
                 text: listTitle,
-                textColor: styler.textColor(bgColor),
+                textColor: styler.textColor(inverted: isColorInverted),
                 overflow: TextOverflow.visible,
               ),
             ),
@@ -88,6 +91,7 @@ class ListHeader extends StatelessWidget {
                 Icons.push_pin,
                 size: 14,
                 noPadding: true,
+                color: styler.textColor(inverted: isColorInverted),
               ),
             //
             //

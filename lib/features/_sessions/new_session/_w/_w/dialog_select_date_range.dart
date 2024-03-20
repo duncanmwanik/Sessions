@@ -7,8 +7,8 @@ import '../../../../../_config/styling/spacing.dart';
 import '../../../../../_config/styling/styler.dart';
 import '../../../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../../../_helpers/date_time/datetime_helper.dart';
-import '../../../../../_widgets/dialogs/action_buttons.dart';
 import '../../../../../_widgets/dialogs/app_dialog.dart';
+import '../../../../../_widgets/dialogs/dialog_buttons.dart';
 import '../../../_state/session_input_provider.dart';
 
 Future showSelectDateRangeDialog(BuildContext context, String type) {
@@ -28,10 +28,13 @@ Future showSelectDateRangeDialog(BuildContext context, String type) {
           monthCellStyle: DateRangePickerMonthCellStyle(
             textStyle: TextStyle(fontWeight: FontWeight.w500, color: styler.textColor()),
             todayTextStyle: TextStyle(fontWeight: FontWeight.w900, color: styler.accentColor()),
+            todayCellDecoration: BoxDecoration(border: Border.all(color: styler.accentColor()), shape: BoxShape.circle),
           ),
           selectionTextStyle: TextStyle(fontWeight: FontWeight.w900, color: Colors.white),
           selectionShape: DateRangePickerSelectionShape.circle,
           selectionMode: DateRangePickerSelectionMode.single,
+          selectionColor: styler.accentColor(),
+          todayHighlightColor: styler.accentColor(),
           initialSelectedDate: initialDate.isNotEmpty ? DateTime.parse(initialDate) : null,
           onSelectionChanged: (DateRangePickerSelectionChangedArgs dates) {
             if (dates.value != null) {

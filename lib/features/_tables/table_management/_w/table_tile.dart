@@ -31,10 +31,10 @@ class TableTile extends StatelessWidget {
                 onPressed: () async => selectNewTable(tableId),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
-                  backgroundColor: styler.itemColor(),
+                  backgroundColor: styler.appColor(2),
                   side: BorderSide.none,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusTinySmall)),
-                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 child: Row(
                   children: [
@@ -59,7 +59,7 @@ class TableTile extends StatelessWidget {
                           //
                           // Indicates if table is selected
                           //
-                          if (tableId == currentSelectedTable()) AppIcon(Icons.done, color: styler.accentColor(), tiny: true),
+                          if (tableId == currentSelectedTable()) AppIcon(Icons.lens, color: styler.accentColor(), size: 14),
                           //
                           //
                         ],

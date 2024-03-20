@@ -66,7 +66,7 @@ Future<void> showSessionBottomSheet({required bool isNewSession}) async {
             Row(
               children: [
                 //
-                AppIcon(Icons.extension_rounded, faded: true),
+                AppIcon(Icons.extension_rounded, faded: true, size: 18),
                 smallSpacerWidth(),
                 //
                 Wrap(

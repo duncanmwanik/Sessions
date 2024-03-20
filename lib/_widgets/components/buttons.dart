@@ -40,9 +40,8 @@ class ActionButton extends StatelessWidget {
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               fixedSize: Size(300, 40),
-              backgroundColor: color ?? (styler.isDarkTheme ? styler.itemColor() : styler.white),
+              backgroundColor: color ?? styler.buttonColor(),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusSmall)),
-              side: styler.lightButtonBorder(),
             ),
             onPressed: onPressed ?? () {},
             child: showLoading
@@ -54,15 +53,12 @@ class ActionButton extends StatelessWidget {
                           AppIcon(
                             iconData,
                             size: 18,
-                            color: color != null ? styler.white : null,
                           ),
                           smallSpacerWidth(),
                           Flexible(
                               child: AppText(
                             size: normal,
                             text: label,
-                            textColor: color != null ? styler.white : null,
-                            fontWeight: color != null ? FontWeight.w600 : null,
                             overflow: TextOverflow.visible,
                           )),
                         ],
@@ -78,8 +74,6 @@ class ActionButton extends StatelessWidget {
                                   child: AppText(
                                 size: medium,
                                 text: label,
-                                textColor: color != null ? styler.white : null,
-                                fontWeight: color != null ? FontWeight.w600 : null,
                                 overflow: TextOverflow.visible,
                               )),
                             ],
@@ -87,8 +81,6 @@ class ActionButton extends StatelessWidget {
                         : AppText(
                             size: normal,
                             text: label,
-                            textColor: color != null ? styler.white : null,
-                            fontWeight: color != null ? FontWeight.w600 : null,
                             overflow: TextOverflow.visible,
                           ),
           ),
@@ -126,8 +118,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: noStyling ? styler.transparent : color ?? (styler.isDarkTheme ? styler.itemColor() : styler.transparent),
-        side: noStyling ? null : styler.lightButtonBorder(),
+        backgroundColor: noStyling ? styler.transparent : color ?? styler.buttonColor(),
         padding: isRound
             ? EdgeInsets.all(kIsWeb && !smallPadding ? 15 : 6)
             : EdgeInsets.only(

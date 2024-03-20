@@ -49,77 +49,80 @@ class DailyView extends StatelessWidget {
                       bool isCurrentHour = TimeOfDay.now().hour == indexHour;
                       Map hourMap = getHourMap(getNewMapFrom(todaySessionsMap), indexHour);
 
-                      return InkWell(
-                        onDoubleTap: () {
-                          prepareSessionCreationFromDay(selectedDate, indexHour);
-                        },
-                        onLongPress: () {
-                          prepareSessionCreationFromDay(selectedDate, indexHour);
-                        },
-                        hoverColor: hourMap.isNotEmpty ? styler.transparent : styler.hoverColor(),
-                        highlightColor: hourMap.isNotEmpty ? styler.transparent : styler.hoverColor(),
-                        child: Container(
-                          padding: EdgeInsets.only(left: 3, right: 3, bottom: 5),
-                          constraints: BoxConstraints(minHeight: 40),
-                          child: Column(
-                            // key: GlobalObjectKey(indexHour),
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              //
-                              //  Divider
-                              //
-                              if (indexHour != 0)
-                                Divider(
-                                  height: 0,
-                                  thickness: isCurrentHour ? 1 : 0.06,
-                                  color: isCurrentHour ? styler.accentColor() : styler.textColor(),
-                                ),
-                              //
-                              if (indexHour != 0) tinySpacerHeight(),
-                              //
-                              //
-                              //
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  //
-                                  // Hour Text
-                                  //
-                                  SizedBox(
-                                    width: 40,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 10, top: 12),
-                                      child: AppText(
-                                        size: 10,
-                                        text: '${hours24to12LabelShort[indexHour]} ${hours24to12Periods[indexHour]}',
-                                        fontWeight: isCurrentHour ? FontWeight.w900 : FontWeight.w300,
-                                        faded: !isCurrentHour,
-                                        textAlign: TextAlign.end,
+                      return Material(
+                        color: styler.transparent,
+                        child: InkWell(
+                          onDoubleTap: () {
+                            prepareSessionCreationFromDay(selectedDate, indexHour);
+                          },
+                          onLongPress: () {
+                            prepareSessionCreationFromDay(selectedDate, indexHour);
+                          },
+                          hoverColor: hourMap.isNotEmpty ? styler.transparent : styler.appColor(1),
+                          highlightColor: hourMap.isNotEmpty ? styler.transparent : styler.appColor(1),
+                          child: Container(
+                            padding: EdgeInsets.only(left: 3, right: 3, bottom: 5),
+                            constraints: BoxConstraints(minHeight: 40),
+                            child: Column(
+                              // key: GlobalObjectKey(indexHour),
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                //
+                                //  Divider
+                                //
+                                if (indexHour != 0)
+                                  Divider(
+                                    height: 0,
+                                    thickness: isCurrentHour ? 1 : 0.06,
+                                    color: isCurrentHour ? styler.accentColor() : styler.textColor(),
+                                  ),
+                                //
+                                if (indexHour != 0) tinySpacerHeight(),
+                                //
+                                //
+                                //
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    //
+                                    // Hour Text
+                                    //
+                                    SizedBox(
+                                      width: 40,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(right: 10, top: 12),
+                                        child: AppText(
+                                          size: 10,
+                                          text: '${hours24to12LabelShort[indexHour]} ${hours24to12Periods[indexHour]}',
+                                          fontWeight: isCurrentHour ? FontWeight.w900 : FontWeight.w300,
+                                          textColor: isCurrentHour ? styler.accentColor() : styler.textColorFaded(),
+                                          textAlign: TextAlign.end,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  //
-                                  // List of Sessions
-                                  //
-                                  Expanded(
-                                    child: ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: NeverScrollableScrollPhysics(),
-                                        itemCount: hourMap.length,
-                                        itemBuilder: (BuildContext context, int indexSessionId) {
-                                          String sessionId = hourMap.keys.toList()[indexSessionId];
-                                          Map sessionData = hourMap[sessionId];
+                                    //
+                                    // List of Sessions
+                                    //
+                                    Expanded(
+                                      child: ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: NeverScrollableScrollPhysics(),
+                                          itemCount: hourMap.length,
+                                          itemBuilder: (BuildContext context, int indexSessionId) {
+                                            String sessionId = hourMap.keys.toList()[indexSessionId];
+                                            Map sessionData = hourMap[sessionId];
 
-                                          return SessionWidgetDaily(
-                                            sessionData: sessionData,
-                                            sessionId: sessionId,
-                                            sessionDate: selectedDate,
-                                          );
-                                        }),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                            return SessionWidgetDaily(
+                                              sessionData: sessionData,
+                                              sessionId: sessionId,
+                                              sessionDate: selectedDate,
+                                            );
+                                          }),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       );

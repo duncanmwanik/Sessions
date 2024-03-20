@@ -6,6 +6,7 @@ import 'package:sessions/_widgets/components/tooltip.dart';
 import 'package:sessions/features/_lists/_w_item/item_flag_list.dart';
 import 'package:sessions/features/_lists/_w_item/item_mini_edit.dart';
 
+import '../../../_config/styling/helpers.dart';
 import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
 import '../../../_helpers/_common_helpers/global_helper.dart';
@@ -27,6 +28,7 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String reminder = itemData['r'] ?? '';
+    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
     return Consumer<ListItemInputProvider>(builder: (cxt, inputProvider, widget) {
       bool showMiniEdits = (inputProvider.miniEditsItemId == itemId);
@@ -45,8 +47,8 @@ class Item extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: styler.listItemColor(bgColor),
-              boxShadow: styler.listItemShadow(bgColor),
+              color: styler.listItemColor(inverted: isColorInverted),
+              boxShadow: styler.listItemShadow(inverted: isColorInverted),
               borderRadius: BorderRadius.circular(showMiniEdits ? borderRadiusMedium : borderRadiusSmall),
             ),
             child: Align(
@@ -87,7 +89,7 @@ class Item extends StatelessWidget {
                                 size: medium,
                                 text: itemData['t'] ?? '---',
                                 fontWeight: FontWeight.w400,
-                                textColor: styler.textColor(bgColor),
+                                textColor: styler.textColor(inverted: isColorInverted),
                                 overflow: TextOverflow.visible,
                               ),
                               //

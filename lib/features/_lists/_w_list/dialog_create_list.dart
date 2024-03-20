@@ -11,7 +11,7 @@ import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
 import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_widgets/components/icons.dart';
-import '../../../_widgets/dialogs/action_buttons.dart';
+import '../../../_widgets/dialogs/dialog_buttons.dart';
 import '../../../_widgets/dialogs/dialog_item_bg_color.dart';
 import '../../files/_helpers/upload_files.dart';
 import '../_helpers/list/create_list.dart';
@@ -56,7 +56,7 @@ Future showCreateListDialog({bool isEdit = false, Map? listData, String? listId}
                 hintText: 'Title',
                 hintStyle: TextStyle(fontSize: textSizeNormal, fontWeight: FontWeight.w500),
                 filled: true,
-                fillColor: styler.itemColor(isDialog: true),
+                fillColor: styler.appColor(1),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadiusSmall), borderSide: BorderSide.none),
               ),
             ),

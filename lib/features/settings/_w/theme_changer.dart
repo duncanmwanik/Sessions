@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:sessions/_widgets/components/icons.dart';
 
-import '../../../_providers/common_providers/theme_provider.dart';
+import '../../../_config/styling/spacing.dart';
+import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_widgets/components/list_tile.dart';
 import '../../../_widgets/components/text_styles.dart';
+import '../../../_widgets/menus/app_popup_menu.dart';
+import '../../../_widgets/menus/menu_item.dart';
 import 'list_tile_widgets.dart';
 
 class ThemeChanger extends StatelessWidget {
@@ -11,29 +14,32 @@ class ThemeChanger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
-      return Column(
-        children: [
-          SettingTitle('THEME'),
-          AppListTile(
+    final GlobalKey menuKey = GlobalKey();
+
+    return Column(
+      children: [
+        //
+        SettingTitle('THEME'),
+        //
+        smallSpacerHeight(),
+        //
+        AppPopupMenu(
+          //
+          menukey: menuKey,
+          //
+          menuButton: AppListTile(
+            onTap: () => openPopupMenu(menuKey),
             leading: AppText(size: medium, text: 'Dark'),
-            trailing: Visibility(visible: themeProvider.isDarkTheme == 'dark', child: Icon(Icons.done_rounded)),
-            onTap: () => themeProvider.enableDarkTheme('dark'),
+            trailing: AppIcon(Icons.keyboard_arrow_right_rounded, size: normal),
           ),
-          divider(),
-          AppListTile(
-            leading: AppText(size: medium, text: 'Light'),
-            trailing: Visibility(visible: themeProvider.isDarkTheme == 'light', child: Icon(Icons.done_rounded)),
-            onTap: () => themeProvider.enableDarkTheme('light'),
-          ),
-          divider(),
-          AppListTile(
-            leading: AppText(size: medium, text: 'Follow system theme'),
-            trailing: Visibility(visible: themeProvider.isDarkTheme == 'system', child: Icon(Icons.done_rounded)),
-            onTap: () => themeProvider.enableDarkTheme('system'),
-          ),
-        ],
-      );
-    });
+          menuItems: [
+            //
+            popupMenuItemForThemes(),
+            //
+          ],
+        ),
+        //
+      ],
+    );
   }
 }

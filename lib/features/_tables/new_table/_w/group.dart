@@ -25,7 +25,7 @@ class TableGroupSelector extends StatelessWidget {
           //
           Row(
             children: [
-              AppIcon(FontAwesomeIcons.folderPlus, faded: true),
+              AppIcon(FontAwesomeIcons.folderPlus, faded: true, size: 16),
               smallSpacerWidth(),
               AppButton(
                 onPressed: () => showSelectTableGroupsDialog(),
@@ -48,8 +48,8 @@ class TableGroupSelector extends StatelessWidget {
                 return ElevatedButton(
                     onPressed: () => showSelectTableGroupsDialog(),
                     style: ElevatedButton.styleFrom(
-                      padding: kIsWeb ? null : EdgeInsets.only(left: 15, top: 3, bottom: 3),
-                      backgroundColor: styler.itemColor(),
+                      padding: EdgeInsets.only(left: 15, top: 3, bottom: 3),
+                      backgroundColor: styler.appColor(1),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusMediumSmall)),
                       side: BorderSide.none,
                       minimumSize: minSizeZero(),
@@ -57,7 +57,7 @@ class TableGroupSelector extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        AppIcon(Icons.folder_outlined, tiny: true),
+                        AppIcon(Icons.folder_rounded, tiny: true),
                         smallSpacerWidth(),
                         Flexible(child: AppText(size: medium, text: groupName, overflow: TextOverflow.visible)),
                         smallSpacerWidth(),

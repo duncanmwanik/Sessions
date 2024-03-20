@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sessions/_config/styling/breakpoints.dart';
 import 'package:sessions/_widgets/others/scroll.dart';
 
+import '../../../_helpers/_common_helpers/theme_helper.dart';
 import '../../../_variables/navigation_variables.dart';
 import '../../_chat/chat_view.dart';
 import '../../_lists/list_view.dart';
@@ -16,22 +17,22 @@ class HomeWeblayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScrollConfiguration(
-      behavior: AppScrollBehavior().copyWith(physics: BouncingScrollPhysics()),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          if (showWebNavBox()) WebLeftBox(),
-          Flexible(
-            child: Container(
-              decoration: BoxDecoration(
-                  // image: DecorationImage(
-                  //   image: AssetImage('assets/images/black.jpg'),
-                  //   fit: BoxFit.cover,
-                  // ),
-                  ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(getDefaultThemeImage()),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: ScrollConfiguration(
+        behavior: AppScrollBehavior().copyWith(physics: BouncingScrollPhysics()),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            if (showWebNavBox()) WebLeftBox(),
+            Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -52,8 +53,8 @@ class HomeWeblayout extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

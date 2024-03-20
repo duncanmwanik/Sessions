@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sessions/_widgets/others/other_widgets.dart';
 
+import '../../_config/styling/helpers.dart';
 import '../../_config/styling/spacing.dart';
 import '../../_config/styling/styler.dart';
+import '../../_helpers/_common_helpers/global_helper.dart';
 
 class CheckBoxOverview extends StatelessWidget {
   const CheckBoxOverview({Key? key, required this.isChecked, this.isTiny = false, this.faded = false, this.noColor = false, this.bgColor, this.onTap}) : super(key: key);
@@ -16,6 +18,8 @@ class CheckBoxOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+
     return ElevatedButton(
       onPressed: onTap ?? () {},
       style: ElevatedButton.styleFrom(
@@ -39,9 +43,9 @@ class CheckBoxOverview extends StatelessWidget {
           border: Border.all(
             color: isChecked
                 ? noColor
-                    ? styler.textColorFaded(bgColor)
+                    ? styler.textColorFaded(inverted: isColorInverted)
                     : styler.transparent
-                : styler.textColorFaded(bgColor),
+                : styler.textColorFaded(inverted: isColorInverted),
             width: 1.7,
           ),
         ),
@@ -53,9 +57,9 @@ class CheckBoxOverview extends StatelessWidget {
                   size: isTiny ? 10 : 12,
                   color: isChecked
                       ? noColor
-                          ? styler.textColor(bgColor)
+                          ? styler.textColor(inverted: isColorInverted)
                           : styler.white
-                      : styler.textColor(bgColor),
+                      : styler.textColor(inverted: isColorInverted),
                 )
               : NoWidget(),
         ),

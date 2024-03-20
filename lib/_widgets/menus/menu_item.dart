@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sessions/_helpers/_common_helpers/global_helper.dart';
+import 'package:sessions/_variables/common_variables.dart';
 import 'package:sessions/_widgets/components/text_styles.dart';
 
 import '../../_config/styling/styler.dart';
 import '../components/icons.dart';
+import 'menu_item_theme.dart';
 
 PopupMenuItem popupMenuItem({required String label, IconData? iconData, required Function() onTap, IconData? trailing}) {
   return PopupMenuItem(
@@ -29,36 +31,23 @@ PopupMenuItem popupMenuItem({required String label, IconData? iconData, required
   );
 }
 
-PopupMenuItem popupMenuItemForTheme({required String label, required String imagePath, Color color = Colors.white}) {
+PopupMenuItem popupMenuItemForThemes() {
   return PopupMenuItem(
       height: 0,
       enabled: false,
       padding: EdgeInsets.symmetric(horizontal: 8),
-      child: Container(
-        height: 50,
+      child: SizedBox(
         width: 150,
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadiusSmall + 3),
-          image: DecorationImage(
-            image: AssetImage(imagePath),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            //
-            AppText(size: medium, text: label, textColor: color),
-            //
-            //
-            AppIcon(Icons.done_rounded, color: color),
-            //
-          ],
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemCount: themeImages.length,
+          separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 8),
+          itemBuilder: (BuildContext context, int index) {
+            String themeImage = themeImages.keys.toList()[index];
+            String themeType = themeImages[themeImage] ?? 'light';
+
+            return ThemeItem(themeImage: themeImage, themeType: themeType);
+          },
         ),
       ));
-}
-
-PopupMenuItem popupMenuItemSpacer({double height = 8}) {
-  return PopupMenuItem(height: 0, enabled: false, padding: EdgeInsets.zero, child: SizedBox(height: height));
 }

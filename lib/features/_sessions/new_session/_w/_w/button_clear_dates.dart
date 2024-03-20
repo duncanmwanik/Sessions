@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../_widgets/components/buttons.dart';
 import '../../../../../_widgets/components/text_styles.dart';
 import '../../../_helpers/session_helpers.dart';
 
@@ -8,8 +9,8 @@ class ClearAllDatesButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(side: BorderSide.none),
+    return AppButton(
+      noStyling: true,
       onPressed: () {
         clearAllSelectedDates(context);
       },

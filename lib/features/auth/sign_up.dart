@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sessions/features/auth/_objects/variables.dart';
 
 import '../../_config/styling/spacing.dart';
+import '../../_config/styling/styler.dart';
+import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_widgets/components/buttons.dart';
 import '../../_widgets/forms/email.dart';
 import '../../_widgets/forms/password.dart';
@@ -51,6 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           // Sign Up Button
           //
           ActionButton(
+              color: styler.white,
               label: 'Create Account',
               showLoading: isSigningUp,
               onPressed: () async {
@@ -59,6 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // that's why we set IsSigningUp to true
                 if (!isSigningUp) {
                   setState(() => isSigningUp = true);
+                  hideKeyboard();
 
                   // await is important, it ensures we see a progress indicator while signing up is in progress
                   await signUpUsingEmailPassword(

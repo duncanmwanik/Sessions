@@ -1,7 +1,7 @@
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 
 import '../../_config/styling/styling.dart';
+import '../../_providers/_provider_variables.dart';
 import '../../_services/hive/local_storage_service.dart';
 
 void changeStatusAndNavigationBarColor(String theme) {
@@ -17,21 +17,21 @@ void changeStatusAndNavigationBarColor(String theme) {
   );
 }
 
-bool getSystemTheme() {
-  var brightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
-  return brightness == Brightness.dark;
+String getThemeImage(String themeImage) {
+  return 'assets/images/$themeImage.jpg';
 }
 
-String getTheme() {
-  return settingBox.get('theme', defaultValue: 'system');
+String getDefaultThemeImage() {
+  return getThemeImage(themeProviderX.themeImage);
+}
+
+String getThemeType() {
+  return settingBox.get('themeType', defaultValue: 'light');
 }
 
 bool getThemeAsBoolean(String theme) {
   bool isDarkTheme = false;
 
-  if (theme == 'system') {
-    isDarkTheme = getSystemTheme();
-  }
   if (theme == 'dark') {
     isDarkTheme = true;
   }

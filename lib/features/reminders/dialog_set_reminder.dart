@@ -10,8 +10,8 @@ import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_helpers/date_time/date_info.dart';
 import '../../_helpers/date_time/datetime_helper.dart';
 import '../../_widgets/components/text_styles.dart';
-import '../../_widgets/dialogs/action_buttons.dart';
 import '../../_widgets/dialogs/app_dialog.dart';
+import '../../_widgets/dialogs/dialog_buttons.dart';
 import '../../_widgets/dialogs/dialog_select_date.dart';
 import '_state/reminders_provider.dart';
 

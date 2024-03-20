@@ -17,9 +17,8 @@ class SelectedDateChip extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 10, top: 1, bottom: 1),
       decoration: BoxDecoration(
-        color: styler.itemColor(),
+        color: styler.appColor(1),
         borderRadius: BorderRadius.circular(borderRadiusMedium),
-        // border: Border.all(color: styler.borderColor()),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

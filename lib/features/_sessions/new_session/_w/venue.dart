@@ -20,7 +20,7 @@ class NewSessionVenueTextForm extends StatelessWidget {
                 //
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
-                  child: AppIcon(Icons.location_on, faded: true),
+                  child: AppIcon(Icons.location_on, faded: true, size: 18),
                 ),
                 //
                 smallSpacerWidth(),
@@ -44,7 +44,7 @@ class NewSessionVenueTextForm extends StatelessWidget {
                       hintStyle: TextStyle(fontSize: textSizeNormal),
                       isDense: true,
                       filled: true,
-                      fillColor: styler.itemColor(),
+                      fillColor: styler.appColor(1),
                       border: formBorder,
                     ),
                   ),

@@ -9,6 +9,7 @@ import '../../../_providers/common_providers/item_selection_provider.dart';
 import '../../../_widgets/components/checkbox.dart';
 import '../../../_widgets/components/text_styles.dart';
 import '../../../_widgets/item_actions/hover_actions.dart';
+import '../../_config/styling/helpers.dart';
 import '../labels/label_list.dart';
 import '../reminders/reminder.dart';
 import '_helpers/tasks_helper.dart';
@@ -35,6 +36,7 @@ class _TaskState extends State<Task> {
     bool isPinned = (widget.taskData['p'] ?? '0') == '1';
     bool isArchived = (widget.taskData['a'] ?? '0') == '1';
     bool isDeleted = (widget.taskData['x'] ?? '0') == '1';
+    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isSelection = selectionProvider.selectedItemMap.isNotEmpty;
@@ -90,7 +92,7 @@ class _TaskState extends State<Task> {
                       child: AppText(
                         size: normal,
                         text: widget.taskData['t'] ?? '',
-                        textColor: styler.textColor(bgColor),
+                        textColor: styler.textColor(inverted: isColorInverted),
                         maxlines: 3,
                       ),
                     ),
@@ -132,7 +134,7 @@ class _TaskState extends State<Task> {
                                 size: medium,
                                 text: subTasksData[subTaskId]['t'] ?? '',
                                 fontWeight: isSubtitle ? FontWeight.w500 : FontWeight.w400,
-                                textColor: styler.textColor(bgColor).withOpacity(0.75),
+                                textColor: styler.textColor(inverted: isColorInverted).withOpacity(0.75),
                                 maxlines: 5,
                                 overflow: TextOverflow.ellipsis,
                                 isCrossed: isEntryChecked,
@@ -148,7 +150,7 @@ class _TaskState extends State<Task> {
                     if (subTasksData.length > 5)
                       Padding(
                         padding: EdgeInsets.only(left: 5, top: 5),
-                        child: AppText(size: small, text: '...', textColor: styler.textColorFaded(bgColor)),
+                        child: AppText(size: small, text: '...', textColor: styler.textColorFaded(inverted: isColorInverted)),
                       ),
                     //
                     smallSpacerHeight(),

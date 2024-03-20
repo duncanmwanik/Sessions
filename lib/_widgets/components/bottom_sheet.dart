@@ -14,19 +14,14 @@ Future<void> showAppBottomSheet({
   Widget? header,
   required Widget content,
   Widget? footer,
-  Color? color,
   bool isMinimized = false,
   bool noContentHorizontalPadding = false,
   FutureOr<void> Function()? whenComplete,
   FutureOr<dynamic> Function(dynamic)? then,
 }) async {
-  //
-  //
-  //
   // we record that the bottom sheet is open
   globalProviderX.updateIsBottomSheetOpen(true);
-  //
-  //
+
   // if screen is large, we show it as a dialog look-alike -> showSheetAsDialog()
 
   await showModalBottomSheet(
@@ -46,7 +41,7 @@ Future<void> showAppBottomSheet({
           : null,
       //
       //
-      backgroundColor: showSheetAsDialog() ? styler.transparent : color,
+      backgroundColor: showSheetAsDialog() ? styler.transparent : null,
       //
       //
       builder: (context) {
@@ -63,7 +58,7 @@ Future<void> showAppBottomSheet({
             Expanded(
               child: Card(
                 elevation: isPhone() ? 0 : 0,
-                color: showSheetAsDialog() ? styler.primaryColor() : color,
+                color: showSheetAsDialog() ? styler.secondaryColor(inverted: isImageTheme()) : null,
                 margin: EdgeInsets.zero,
                 shape: isMinimized
                     ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusMedium))

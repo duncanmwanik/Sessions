@@ -40,85 +40,84 @@ class AppBarHome extends StatelessWidget {
           String tableId = currentSelectedTable();
           bool isATableSelected = tableId != 'none';
 
-          return Padding(
-            padding: itemPadding(),
-            child: ListTile(
-              dense: true,
-              horizontalTitleGap: 0,
-              contentPadding: EdgeInsets.symmetric(horizontal: 0),
-              tileColor: styler.appbarColor(),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusLarge)),
-              //
-              // Leading Drawer Icon Button
-              //
-              leading: AppIconButton(
-                onPressed: () => openDrawer(),
-                Icons.sort_rounded,
-                largeSize: true,
-              ),
-              //
-              // Selected Table Name
-              //
-              title: Row(
-                children: [
-                  //
-                  //
-                  InkWell(
-                    onTap: () => openDrawer(),
-                    borderRadius: BorderRadius.circular(borderRadiusMedium),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      child: AppText(
-                        size: appBar,
-                        text: isATableSelected ? tableNamesBox.get(tableId, defaultValue: 'Select a table') : 'Select a table',
-                        textAlign: TextAlign.start,
-                        overflow: TextOverflow.ellipsis,
-                        fontWeight: FontWeight.w600,
+          return Container(
+            margin: itemPadding(),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(borderRadiusLarge),
+              color: styler.appColor(styler.isDarkTheme ? 0.4 : 0.6),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //
+                //
+                Flexible(
+                  child: Row(
+                    children: [
+                      // Drawer Icon Button
+                      //
+                      AppIconButton(
+                        onPressed: () => openDrawer(),
+                        Icons.sort_rounded,
+                        largeSize: true,
+                        faded: true,
                       ),
-                    ),
+                      //
+                      // Selected Table Name
+                      //
+                      Flexible(
+                        child: ElevatedButton(
+                          onPressed: () => openDrawer(),
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusMedium)),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            backgroundColor: styler.transparent,
+                          ),
+                          child: AppText(
+                            size: appBar,
+                            text: isATableSelected ? tableNamesBox.get(tableId, defaultValue: 'Select a table') : 'Select a table',
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.ellipsis,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      //
+                    ],
                   ),
-                  //
-                  //
-                  if (isATableSelected)
-                    AppButton(
-                      onPressed: () => showTableOverviewBottomSheet(),
-                      noStyling: true,
-                      child: AppIcon(Icons.more_horiz_rounded, faded: true),
-                    ),
-                  //
-                ],
-              ),
-              //
-              //
-              // Actions
-              //
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  //
-                  mediumSpacerWidth(),
-                  //
-                  // AppText(text: 100.w.toString()),
-                  //
-                  //
-                  CloudSyncIndicator(),
-                  //
-                  //
-                  LayoutButton(),
-                  //
-                  //
-                  QuickThemeChanger(),
-                  //
-                  // User Account + Settings Button
-                  //
-                  UserProfileButton(),
-                  //
-                  //
-                  //
-                ],
-              ),
-              //
-              //
+                ),
+                //
+                // Actions
+                //
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // AppText(text: 100.w.toString()),
+                    //
+                    mediumSpacerWidth(),
+                    //
+                    CloudSyncIndicator(),
+                    //
+                    if (isATableSelected)
+                      AppButton(
+                        onPressed: () => showTableOverviewBottomSheet(),
+                        isRound: true,
+                        noStyling: true,
+                        child: AppIcon(Icons.more_horiz_rounded, faded: true),
+                      ),
+                    //
+                    LayoutButton(),
+                    //
+                    QuickThemeChanger(),
+                    //
+                    UserAccountSettingsButton(),
+                    //
+                  ],
+                ),
+                //
+                //
+              ],
             ),
           );
         });

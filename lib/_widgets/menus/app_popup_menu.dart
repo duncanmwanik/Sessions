@@ -18,11 +18,11 @@ class AppPopupMenu extends StatelessWidget {
       elevation: 0,
       clipBehavior: Clip.antiAlias,
       tooltip: tooltip ?? 'Options',
-      color: styler.secondaryColor(),
-      surfaceTintColor: styler.transparent,
+      color: styler.tertiaryColor(),
+      surfaceTintColor: Colors.black38,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadiusMedium - 3), // -3 aligns border with AppButtons
-        side: BorderSide(color: Colors.blueGrey.withOpacity(0.1), width: 1.5),
+        side: BorderSide(color: Colors.grey.withOpacity(styler.isDarkTheme ? 0.1 : 0.2)),
       ),
       child: menuButton,
       itemBuilder: (context) => menuItems,

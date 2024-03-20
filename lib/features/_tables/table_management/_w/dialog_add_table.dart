@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sessions/_config/styling/spacing.dart';
 import 'package:sessions/_widgets/components/text_styles.dart';
 
-import '../../../../_widgets/dialogs/action_buttons.dart';
 import '../../../../_widgets/dialogs/app_dialog.dart';
+import '../../../../_widgets/dialogs/dialog_buttons.dart';
 import '../../_helpers/add_table_from_id.dart';
 import 'input_text.dart';
 

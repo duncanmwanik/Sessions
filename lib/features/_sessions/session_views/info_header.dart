@@ -36,7 +36,7 @@ class InfoHeader extends StatelessWidget {
 
       return Container(
         padding: EdgeInsets.only(left: 5, right: kIsWeb ? 15 : 10, bottom: 5, top: kIsWeb ? 5 : 0),
-        color: styler.primaryColor(),
+        // color: styler.primaryColor(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: kIsWeb ? CrossAxisAlignment.center : CrossAxisAlignment.start,
@@ -62,13 +62,13 @@ class InfoHeader extends StatelessWidget {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusSmall)),
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           padding: EdgeInsets.symmetric(horizontal: 10),
+                          backgroundColor: styler.transparent,
                         ),
                         child: FittedBox(
                           child: AppText(
                             size: title,
                             text: infoList[viewsProvider.selectedSessionView],
                             fontWeight: isToday ? FontWeight.w900 : FontWeight.w700,
-                            // textColor: isToday ? styler.accentColor() : null,
                           ),
                         ),
                       ),
@@ -105,7 +105,6 @@ class InfoHeader extends StatelessWidget {
                             }
                           },
                         ),
-                        //
                         //
                         // Go to Next date
                         AppButton(

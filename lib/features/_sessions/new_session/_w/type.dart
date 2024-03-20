@@ -30,7 +30,7 @@ class NewSessionTypePicker extends StatelessWidget {
             children: [
               Flexible(child: AppText(size: medium, text: sessionTypeList[int.parse(inputProvider.sessionInputData['y'])])),
               mediumSpacerWidth(),
-              AppIcon(Icons.arrow_drop_down),
+              AppIcon(Icons.arrow_drop_down, size: 16),
             ],
           ),
         ),

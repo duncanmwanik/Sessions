@@ -38,7 +38,6 @@ class LabelManager extends StatelessWidget {
                       //
                       //
                       if (isTableAdmin()) NewlabelInput(),
-                      if (isTableAdmin()) tinySpacerHeight(),
                       //
                       //
                       //
@@ -52,7 +51,7 @@ class LabelManager extends StatelessWidget {
                           //
                           if (!isSelection) DefaultLabelItem(label: 'All', iconData: Icons.label_rounded, isSelected: selected == 'All', isPopable: isPopable),
                           if (!isSelection) tinySpacerHeight(),
-                          if (!isSelection) DefaultLabelItem(label: 'Archive', iconData: Icons.archive, isSelected: selected == 'Archive', isPopable: isPopable),
+                          if (!isSelection) DefaultLabelItem(label: 'Archive', iconData: Icons.archive_rounded, isSelected: selected == 'Archive', isPopable: isPopable),
                           if (!isSelection) tinySpacerHeight(),
                           if (!isSelection) DefaultLabelItem(label: 'Trash', iconData: Icons.delete_rounded, isSelected: selected == 'Trash', isPopable: isPopable),
                           if (!isSelection) tinySpacerHeight(),
@@ -76,7 +75,16 @@ class LabelManager extends StatelessWidget {
                       ),
                     ],
                   )
-                : Padding(padding: itemPaddingMedium(bottom: true), child: Center(child: AppText(size: medium, text: 'You have selected items')));
+                : Padding(
+                    padding: itemPadding(top: true),
+                    child: Center(
+                        child: AppText(
+                      size: medium,
+                      text: 'You have selected items',
+                      fontWeight: FontWeight.w400,
+                      faded: true,
+                    )),
+                  );
           });
         });
   }

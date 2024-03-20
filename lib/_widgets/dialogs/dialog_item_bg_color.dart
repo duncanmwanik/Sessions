@@ -8,8 +8,8 @@ import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_variables/common_variables.dart';
 import '../../_variables/text_descriptions.dart';
 import '../components/icons.dart';
-import 'action_buttons.dart';
 import 'app_dialog.dart';
+import 'dialog_buttons.dart';
 
 Future showPickItemBgColor({String color = ''}) {
   List colorNosList = itemBgColors.keys.toList();

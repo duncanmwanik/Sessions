@@ -22,7 +22,7 @@ class SettingTitle extends StatelessWidget {
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
-        color: styler.itemColor(),
+        color: styler.appColor(2.2),
         borderRadius: showSheetAsDialog() ? BorderRadius.circular(borderRadiusSmall) : null,
       ),
       child: AppText(size: normal, text: title, faded: true),

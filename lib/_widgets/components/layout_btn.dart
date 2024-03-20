@@ -60,7 +60,7 @@ class LayoutButton extends StatelessWidget {
             },
             isRound: true,
             noStyling: true,
-            child: AppIcon((isNoteView ? iconLayoutNotes[layout] : iconLayoutBoard[layout]) ?? Icons.lens, tiny: true),
+            child: AppIcon((isNoteView ? iconLayoutNotes[layout] : iconLayoutBoard[layout]) ?? Icons.lens, faded: true, tiny: true),
           ),
         ),
       );

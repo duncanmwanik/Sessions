@@ -18,43 +18,49 @@ class ExploreBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
-      hoverColor: iconColor.withOpacity(0.2),
-      splashColor: iconColor.withOpacity(0.2),
-      highlightColor: iconColor.withOpacity(0.2),
-      child: Container(
-        padding: EdgeInsets.all(15),
-        width: isPhone() ? 46.w : 30.w,
-        constraints: BoxConstraints(minHeight: 150, maxWidth: 300),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
-          border: Border.all(color: Colors.blueGrey.withOpacity(0.3)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //
-            // Image
-            //
-            AppIcon(icon, size: 40, color: iconColor),
-            //
-            mediumSpacerHeight(),
-            smallSpacerHeight(),
-            //
-            //
-            // Title
-            Flexible(child: AppText(size: normal, text: title)),
-            //
-            smallSpacerHeight(),
-            //
-            //
-            // Description
-            Flexible(child: AppText(size: small, text: subtitle, faded: true)),
-          ],
+    return Material(
+      color: styler.transparent,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
+        hoverColor: styler.appColor(2),
+        splashColor: styler.appColor(2),
+        highlightColor: styler.appColor(2),
+        child: Container(
+          padding: EdgeInsets.all(15),
+          width: isPhone() ? 46.w : 30.w,
+          constraints: BoxConstraints(minHeight: 150, maxWidth: 300),
+          decoration: BoxDecoration(
+            color: styler.appColor(1),
+            borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
+            border: styler.itemBorder(false),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //
+              // Image
+              //
+              AppIcon(icon, size: 40, color: iconColor),
+              //
+              mediumSpacerHeight(),
+              smallSpacerHeight(),
+              //
+              //
+              // Title
+              Flexible(child: AppText(size: normal, text: title)),
+              //
+              smallSpacerHeight(),
+              //
+              //
+              // Description
+              Flexible(child: AppText(size: small, text: subtitle, faded: true)),
+              //
+              //
+            ],
+          ),
         ),
       ),
     );

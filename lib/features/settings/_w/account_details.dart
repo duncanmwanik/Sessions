@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:sessions/_config/styling/spacing.dart';
+import 'package:sessions/_widgets/components/icons.dart';
 
 import '../../../_helpers/user/user_info.dart';
 import '../../../_widgets/components/list_tile.dart';
@@ -17,24 +19,33 @@ class AccountDetails extends StatelessWidget {
         builder: (context, box, widget) {
           return Column(
             children: [
+              //
               SettingTitle('ACCOUNT'),
+              //
+              smallSpacerHeight(),
+              //
               AppListTile(
                 leading: AppText(size: medium, text: 'Name'),
                 trailing: AppText(size: medium, text: getCurrentUserName()),
                 onTap: () {},
               ),
-              divider(),
+              //
+              smallSpacerHeight(),
+              //
               AppListTile(
                 leading: AppText(size: medium, text: 'Email'),
                 trailing: AppText(size: medium, text: getCurrentUserEmail()),
                 onTap: () {},
               ),
-              divider(),
+              //
+              smallSpacerHeight(),
+              //
               AppListTile(
                 leading: AppText(size: medium, text: 'Edit Account Details'),
-                trailing: Icon(Icons.keyboard_arrow_right_rounded),
+                trailing: AppIcon(Icons.keyboard_arrow_right_rounded, size: normal),
                 onTap: () => showEditDetailsBottomSheet(context),
               ),
+              //
             ],
           );
         });

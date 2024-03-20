@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_variables/navigation_variables.dart';
 import 'package:sessions/_widgets/components/text_styles.dart';
 
@@ -20,6 +21,7 @@ Future<dynamic> showAppDialog({dynamic title, Widget? content, List<Widget>? act
         child: Opacity(
           opacity: a1.value,
           child: AlertDialog(
+            backgroundColor: styler.tertiaryColor(),
             insetPadding: dialogInsetPadding(),
             titlePadding: EdgeInsets.only(left: 24, right: 24, top: smallTopPadding ? 12 : 24),
             contentPadding: EdgeInsets.only(

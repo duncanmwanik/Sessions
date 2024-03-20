@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sessions/_config/styling/breakpoints.dart';
 
+import '../../../_config/styling/breakpoints.dart';
 import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
+import '../../../_helpers/_common_helpers/theme_helper.dart';
 import 'manager.dart';
 
 class TableManagementDrawer extends StatelessWidget {
@@ -12,7 +13,7 @@ class TableManagementDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       width: webDrawerWidth(),
-      backgroundColor: styler.primaryColor(),
+      backgroundColor: styler.transparent,
       elevation: 0,
       shape: isNotPhone()
           ? RoundedRectangleBorder(
@@ -21,7 +22,14 @@ class TableManagementDrawer extends StatelessWidget {
               bottomRight: Radius.circular(borderRadiusMedium),
             ))
           : null,
-      child: TableManager(),
+      child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(getDefaultThemeImage()),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: TableManager()),
     );
   }
 }

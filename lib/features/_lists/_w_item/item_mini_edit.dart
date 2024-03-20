@@ -6,6 +6,7 @@ import 'package:sessions/features/_lists/_state/list_item_input_provider.dart';
 import 'package:sessions/features/_lists/_w_item/menu_delete_item.dart';
 
 import '../../../../_widgets/components/icons.dart';
+import '../../../_config/styling/helpers.dart';
 import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
 import '../../../_helpers/_common_helpers/global_helper.dart';
@@ -23,6 +24,7 @@ class ItemMiniEdits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FocusNode editItemFocusNode = FocusNode();
+    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
     return Consumer<ListItemInputProvider>(builder: (cxt, inputProvider, widget) {
       String reminder = inputProvider.listItemData['r'] ?? '';
@@ -45,10 +47,10 @@ class ItemMiniEdits extends StatelessWidget {
             minLines: 2,
             maxLines: 6,
             textInputAction: TextInputAction.done,
-            style: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColor(bgColor)),
+            style: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColor(inverted: isColorInverted)),
             decoration: InputDecoration(
               hintText: 'Item',
-              hintStyle: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w500, color: styler.textColorFaded(bgColor)),
+              hintStyle: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w500, color: styler.textColorFaded(inverted: isColorInverted)),
               border: InputBorder.none,
               contentPadding: itemPadding(),
             ),
@@ -98,7 +100,7 @@ class ItemMiniEdits extends StatelessWidget {
                 Icons.notification_add,
                 tooltip: 'Add Reminder',
                 size: 18,
-                faded: true,
+                color: styler.textColorFaded(inverted: isColorInverted),
               ),
               //
               // Add Flags
@@ -116,7 +118,7 @@ class ItemMiniEdits extends StatelessWidget {
                 Icons.flag_outlined,
                 tooltip: 'Flags',
                 size: 18,
-                faded: true,
+                color: styler.textColorFaded(inverted: isColorInverted),
               ),
               //
               // Delete Item

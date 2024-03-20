@@ -5,8 +5,8 @@ import 'package:sessions/_widgets/others/empty_box.dart';
 
 import '../../_config/styling/spacing.dart';
 import '../../_helpers/_common_helpers/global_helper.dart';
-import '../../_widgets/dialogs/action_buttons.dart';
 import '../../_widgets/dialogs/app_dialog.dart';
+import '../../_widgets/dialogs/dialog_buttons.dart';
 import '../_tables/_helpers/get_table_data.dart';
 import '_w/../flag.dart';
 import '_w/../new_flag_input.dart';

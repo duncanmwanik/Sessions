@@ -22,7 +22,6 @@ class WebNavBox extends StatelessWidget {
 
       return Container(
         width: 50,
-        padding: itemPaddingSmall(left: true, right: true),
         decoration: BoxDecoration(
           border: (!showWebBox() || !showWebBoxOptions) ? null : Border(right: BorderSide(color: styler.borderColor())),
         ),

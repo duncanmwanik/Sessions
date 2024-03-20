@@ -3,6 +3,7 @@ import 'package:sessions/_config/styling/spacing.dart';
 import 'package:sessions/_widgets/others/scroll.dart';
 
 import '../../_config/styling/styler.dart';
+import '../../_helpers/_common_helpers/theme_helper.dart';
 import '../../_providers/_provider_variables.dart';
 import '../../_variables/navigation_variables.dart';
 import '_variables/variables.dart';
@@ -27,7 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/planet.png'),
+            image: AssetImage(getDefaultThemeImage()),
             fit: BoxFit.cover,
           ),
         ),

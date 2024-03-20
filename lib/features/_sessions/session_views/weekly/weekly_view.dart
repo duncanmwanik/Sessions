@@ -68,7 +68,7 @@ class WeeklyView extends StatelessWidget {
                                         size: tiny,
                                         text: '${hours24to12LabelShort[indexHour]} ${hours24to12Periods[indexHour]}',
                                         fontWeight: isCurrentHour ? FontWeight.w900 : FontWeight.w300,
-                                        faded: !isCurrentHour,
+                                        textColor: isCurrentHour ? styler.accentColor() : styler.textColorFaded(),
                                         textAlign: TextAlign.end,
                                       ),
                                     ),
@@ -91,49 +91,52 @@ class WeeklyView extends StatelessWidget {
                                                 Map hourMap = getHourMap(getNewMapFrom(todaySessionsMap), indexHour);
 
                                                 return Expanded(
-                                                  child: InkWell(
-                                                    onDoubleTap: () {
-                                                      prepareSessionCreationFromDay(dateToday, indexHour);
-                                                    },
-                                                    onLongPress: () {
-                                                      prepareSessionCreationFromDay(dateToday, indexHour);
-                                                    },
-                                                    hoverColor: hourMap.isNotEmpty ? styler.transparent : styler.hoverColor(),
-                                                    highlightColor: hourMap.isNotEmpty ? styler.transparent : styler.hoverColor(),
-                                                    child: Container(
-                                                      width: double.maxFinite,
-                                                      constraints: BoxConstraints(minHeight: 36.7),
-                                                      decoration: BoxDecoration(
-                                                        border: Border(
-                                                          left: BorderSide(color: styler.textColorFaded(), width: 0.06),
-                                                          right: showWebBox() && indexWeekDay == 6 ? BorderSide(color: styler.textColorFaded(), width: 0.06) : BorderSide.none,
-                                                        ),
-                                                      ),
-                                                      child: Column(
-                                                        children: [
-                                                          //
-                                                          // Indicates current hour
-                                                          //
-                                                          if (isCurrentHour && isToday) CurrentHourIndicator(),
-
-                                                          //
-                                                          // Session List
-                                                          //
-                                                          Flexible(
-                                                            child: Column(
-                                                              children: List.generate(hourMap.length, (indexSessionId) {
-                                                                String sessionId = hourMap.keys.toList()[indexSessionId];
-                                                                Map sessionData = hourMap[sessionId];
-
-                                                                return SessionWidgetWeekly(
-                                                                  sessionData: sessionData,
-                                                                  sessionId: sessionId,
-                                                                  sessionDate: dateToday,
-                                                                );
-                                                              }),
-                                                            ),
+                                                  child: Material(
+                                                    color: styler.transparent,
+                                                    child: InkWell(
+                                                      onDoubleTap: () {
+                                                        prepareSessionCreationFromDay(dateToday, indexHour);
+                                                      },
+                                                      onLongPress: () {
+                                                        prepareSessionCreationFromDay(dateToday, indexHour);
+                                                      },
+                                                      hoverColor: hourMap.isNotEmpty ? styler.transparent : styler.appColor(1),
+                                                      highlightColor: hourMap.isNotEmpty ? styler.transparent : styler.appColor(1),
+                                                      child: Container(
+                                                        width: double.maxFinite,
+                                                        constraints: BoxConstraints(minHeight: 36.7),
+                                                        decoration: BoxDecoration(
+                                                          border: Border(
+                                                            left: BorderSide(color: styler.textColorFaded(), width: 0.06),
+                                                            right: showWebBox() && indexWeekDay == 6 ? BorderSide(color: styler.textColorFaded(), width: 0.06) : BorderSide.none,
                                                           ),
-                                                        ],
+                                                        ),
+                                                        child: Column(
+                                                          children: [
+                                                            //
+                                                            // Indicates current hour
+                                                            //
+                                                            if (isCurrentHour && isToday) CurrentHourIndicator(),
+
+                                                            //
+                                                            // Session List
+                                                            //
+                                                            Flexible(
+                                                              child: Column(
+                                                                children: List.generate(hourMap.length, (indexSessionId) {
+                                                                  String sessionId = hourMap.keys.toList()[indexSessionId];
+                                                                  Map sessionData = hourMap[sessionId];
+
+                                                                  return SessionWidgetWeekly(
+                                                                    sessionData: sessionData,
+                                                                    sessionId: sessionId,
+                                                                    sessionDate: dateToday,
+                                                                  );
+                                                                }),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),

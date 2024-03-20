@@ -50,23 +50,26 @@ class MonthlyView extends StatelessWidget {
                                 builder: (context, box, widget) {
                                   Map todaySessionsMap = sortSessionsByTime(box.get(dateToday, defaultValue: {}));
 
-                                  return InkWell(
-                                    onTap: () => showSessionListBottomSheet(dateToday, todaySessionsMap),
-                                    onDoubleTap: () => prepareSessionCreationFromDay(dateToday, TimeOfDay.now().hour),
-                                    onLongPress: () => prepareSessionCreationFromDay(dateToday, TimeOfDay.now().hour),
-                                    child: Container(
-                                      width: width / 7,
-                                      height: height / 6,
-                                      constraints: BoxConstraints(minHeight: 70),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: styler.textColorFaded(), width: 0.06),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          MonthDayNumberLabel(date: date),
-                                          MonthDaySessionList(todaySessionsMap: todaySessionsMap),
-                                        ],
+                                  return Material(
+                                    color: styler.transparent,
+                                    child: InkWell(
+                                      onTap: () => showSessionListBottomSheet(dateToday, todaySessionsMap),
+                                      onDoubleTap: () => prepareSessionCreationFromDay(dateToday, TimeOfDay.now().hour),
+                                      onLongPress: () => prepareSessionCreationFromDay(dateToday, TimeOfDay.now().hour),
+                                      child: Container(
+                                        width: width / 7,
+                                        height: height / 6,
+                                        constraints: BoxConstraints(minHeight: 70),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(color: styler.textColorFaded(), width: 0.06),
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            MonthDayNumberLabel(date: date),
+                                            MonthDaySessionList(todaySessionsMap: todaySessionsMap),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   );

@@ -6,6 +6,7 @@ import 'package:sessions/_widgets/components/text_styles.dart';
 
 import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
+import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_widgets/components/icons.dart';
 import '../../_tables/_helpers/checks_table.dart';
 import '../_helpers/list_item/create_list_item.dart';
@@ -27,6 +28,8 @@ class _NewItemInputState extends State<NewItemInput> {
 
   @override
   Widget build(BuildContext context) {
+    bool isColorInverted = hasBGColor(widget.bgColor) || isImageTheme();
+
     return Visibility(
       visible: isTableAdmin(),
       child: TapRegion(
@@ -45,7 +48,7 @@ class _NewItemInputState extends State<NewItemInput> {
                   alignment: Alignment.topLeft,
                   child: AppButton(
                     color: hasBGColor(widget.bgColor) ? styler.white : null,
-                    noStyling: !hasBGColor(widget.bgColor),
+                    noStyling: true,
                     onPressed: () {
                       newItemFocusNode.requestFocus();
                       setState(() => showSaveButton = true);
@@ -53,9 +56,9 @@ class _NewItemInputState extends State<NewItemInput> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        AppIcon(Icons.add_rounded, size: 18, color: styler.textColorFaded(widget.bgColor)),
+                        AppIcon(Icons.add_rounded, size: 18, color: styler.textColorFaded(inverted: isColorInverted)),
                         tinySpacerWidth(),
-                        Flexible(child: AppText(size: small, text: 'Add Item', textColor: styler.textColorFaded(widget.bgColor))),
+                        Flexible(child: AppText(size: small, text: 'Add Item', textColor: styler.textColorFaded(inverted: isColorInverted))),
                       ],
                     ),
                   ),
@@ -75,9 +78,9 @@ class _NewItemInputState extends State<NewItemInput> {
                     //
                     Container(
                       decoration: BoxDecoration(
-                        color: styler.listItemColor(widget.bgColor),
+                        color: styler.listItemColor(inverted: isColorInverted),
                         borderRadius: BorderRadius.circular(borderRadiusSmall),
-                        boxShadow: styler.listItemShadow(widget.bgColor),
+                        boxShadow: styler.listItemShadow(inverted: isColorInverted),
                       ),
                       child: TextFormField(
                         onFieldSubmitted: (_) async {
@@ -96,10 +99,10 @@ class _NewItemInputState extends State<NewItemInput> {
                         minLines: 2,
                         maxLines: 6,
                         textInputAction: TextInputAction.done,
-                        style: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColor(widget.bgColor)),
+                        style: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColor(inverted: isColorInverted)),
                         decoration: InputDecoration(
                           hintText: 'New Item',
-                          hintStyle: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColorFaded(widget.bgColor)),
+                          hintStyle: TextStyle(fontSize: textSizeMedium, fontWeight: FontWeight.w400, color: styler.textColorFaded(inverted: isColorInverted)),
                           isDense: true,
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.all(10),

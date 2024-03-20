@@ -76,7 +76,7 @@ class _FileItemState extends State<FileItem> {
               fileBox.clear();
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: styler.itemColor(),
+              backgroundColor: styler.appColor(1),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusMediumSmall)),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               padding: EdgeInsets.symmetric(horizontal: 7, vertical: kIsWeb ? 14 : 7),

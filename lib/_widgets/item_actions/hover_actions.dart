@@ -4,10 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:sessions/_config/styling/breakpoints.dart';
 import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_providers/common_providers/item_selection_provider.dart';
+import 'package:sessions/_widgets/components/text_styles.dart';
 import 'package:sessions/_widgets/dialogs/confirmation_dialog.dart';
 import 'package:sessions/_widgets/item_actions/hover_actions_more.dart';
 import 'package:sessions/_widgets/others/other_widgets.dart';
 
+import '../../_config/styling/helpers.dart';
 import '../../_helpers/_common_helpers/delete_item_forever.dart';
 import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_helpers/edits/edit_item_extras.dart';
@@ -57,6 +59,7 @@ class HoverActions extends StatelessWidget {
       child: Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
         bool inSelection = selectionProvider.selectedItemMap.isNotEmpty;
         bool isSelected = selectionProvider.selectedItemMap.containsKey(itemId);
+        bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
         return SizedBox(
           height: height,
@@ -109,7 +112,7 @@ class HoverActions extends StatelessWidget {
                           });
                         },
                         Icons.label_outlined,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: 'Reminder',
                         size: 18,
                       ),
@@ -126,7 +129,7 @@ class HoverActions extends StatelessWidget {
                           });
                         },
                         Icons.notifications_none_outlined,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: 'Reminder',
                         size: 18,
                       ),
@@ -143,7 +146,7 @@ class HoverActions extends StatelessWidget {
                           });
                         },
                         Icons.palette_outlined,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: 'Color',
                         size: 18,
                       ),
@@ -160,7 +163,7 @@ class HoverActions extends StatelessWidget {
                           }
                         },
                         isPinned ? Icons.push_pin_outlined : Icons.push_pin_rounded,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: isPinned ? 'Unpin' : 'Pin',
                         size: 18,
                       ),
@@ -173,9 +176,9 @@ class HoverActions extends StatelessWidget {
                           await editItemExtras(where: type, action: typeActionsEdit[type], itemId: itemId, type: 'x', value: '0');
                         },
                         FontAwesomeIcons.trashArrowUp,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: 'Restore From Trash',
-                        size: textSizeNormal,
+                        size: medium,
                       ),
                     //
                     // Delete item forever
@@ -193,8 +196,9 @@ class HoverActions extends StatelessWidget {
                           });
                         },
                         Icons.delete_forever_rounded,
-                        color: styler.hoverActionsColor(bgColor),
+                        color: styler.textColorFaded(inverted: isColorInverted),
                         tooltip: 'Delete Forever',
+                        size: 18,
                       ),
                     //
                     //
@@ -212,7 +216,7 @@ class HoverActions extends StatelessWidget {
               if (showPinned && !showHoverOptions)
                 AppIcon(
                   Icons.more_horiz_rounded,
-                  color: styler.hoverActionsColor(bgColor).withOpacity(0.2),
+                  color: styler.textColorFaded(inverted: isColorInverted).withOpacity(0.2),
                   size: 18,
                 ),
               //

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sessions/_widgets/components/icons.dart';
 
+import '../../../_config/styling/spacing.dart';
 import '../../../_helpers/_common_helpers/url_launcher_helper.dart';
 import '../../../_helpers/user/user_info.dart';
 import '../../../_widgets/components/list_tile.dart';
@@ -19,18 +20,25 @@ class AccountSupport extends StatelessWidget {
         builder: (context, box, widget) {
           return Column(
             children: [
+              //
               SettingTitle('SUPPORT'),
+              //
+              smallSpacerHeight(),
+              //
               AppListTile(
                 leading: AppText(size: medium, text: 'Sign Out'),
-                trailing: AppIcon(Icons.exit_to_app_rounded, faded: true),
+                trailing: AppIcon(Icons.exit_to_app_rounded, faded: true, size: normal),
                 onTap: () => signOutUser(),
               ),
-              divider(),
+              //
+              smallSpacerHeight(),
+              //
               AppListTile(
                 leading: AppText(size: medium, text: 'Send Feedback'),
+                trailing: AppIcon(Icons.keyboard_arrow_right_rounded, size: normal),
                 onTap: () => sendUserFeedbackViaEmail(),
               ),
-              divider(),
+              //
             ],
           );
         });

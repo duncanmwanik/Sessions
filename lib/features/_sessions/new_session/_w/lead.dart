@@ -20,7 +20,7 @@ class NewSessionLeadTextForm extends StatelessWidget {
                 //
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
-                  child: AppIcon(Icons.person_rounded, faded: true),
+                  child: AppIcon(Icons.person_rounded, faded: true, size: 18),
                 ),
                 //
                 smallSpacerWidth(),
@@ -41,7 +41,7 @@ class NewSessionLeadTextForm extends StatelessWidget {
                       hintStyle: TextStyle(fontSize: textSizeNormal),
                       isDense: true,
                       filled: true,
-                      fillColor: styler.itemColor(),
+                      fillColor: styler.appColor(1),
                       border: formBorder,
                     ),
                   ),

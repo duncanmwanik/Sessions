@@ -30,12 +30,7 @@ class WebLeftBox extends StatelessWidget {
         width: showWebBoxOptions ? 251 : 51,
         height: double.maxFinite,
         decoration: BoxDecoration(
-          color: styler.primaryColor(),
           border: Border(right: BorderSide(color: styler.borderColor())),
-          //  image: DecorationImage(
-          //       image: AssetImage('assets/images/planet.png'),
-          //       fit: BoxFit.cover,
-          //     ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

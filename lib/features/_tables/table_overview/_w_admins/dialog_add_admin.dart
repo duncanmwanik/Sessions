@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../_widgets/dialogs/action_buttons.dart';
 import '../../../../_widgets/dialogs/app_dialog.dart';
+import '../../../../_widgets/dialogs/dialog_buttons.dart';
 import '../../_helpers/admin_helpers.dart';
 import '../../table_management/_w/input_text.dart';
 

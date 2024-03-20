@@ -26,7 +26,7 @@ class NewSessionReminders extends StatelessWidget {
               //
               // Icon
               //
-              AppIcon(Icons.notification_add, faded: true),
+              AppIcon(Icons.notification_add, faded: true, size: 18),
               smallSpacerWidth(),
               //
               // Add Button
@@ -39,7 +39,7 @@ class NewSessionReminders extends StatelessWidget {
                   },
                   child: Row(
                     children: [
-                      AppIcon(Icons.add_rounded, size: 19),
+                      AppIcon(Icons.add_rounded, size: 16),
                       tinySpacerWidth(),
                       AppText(size: medium, text: 'Add Reminder'),
                     ],

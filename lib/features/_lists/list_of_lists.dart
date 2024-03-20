@@ -79,7 +79,7 @@ class ListOfLists extends StatelessWidget {
 
                         return SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          physics: kIsWeb ? null : SnapScrollPhysics(snapSize: 300),
+                          physics: kIsWeb ? BouncingScrollPhysics() : SnapScrollPhysics(snapSize: 300),
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,

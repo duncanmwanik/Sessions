@@ -16,7 +16,7 @@ class SessionTypeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: styler.itemColor(),
+        backgroundColor: styler.appColor(1.5),
         padding: EdgeInsets.symmetric(
           horizontal: 12,
           vertical: isNotPhone() ? 15 : 6,

@@ -6,8 +6,8 @@ import '../../../../_config/styling/styler.dart';
 import '../../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../../_helpers/date_time/datetime_helper.dart';
 import '../../../../_widgets/components/text_styles.dart';
-import '../../../../_widgets/dialogs/action_buttons.dart';
 import '../../../../_widgets/dialogs/app_dialog.dart';
+import '../../../../_widgets/dialogs/dialog_buttons.dart';
 
 Future showSelectCopyDatesDialog() {
   List<String> selectedDates = [];
@@ -34,7 +34,7 @@ Future showSelectCopyDatesDialog() {
               headerStyle: DateRangePickerHeaderStyle(textStyle: TextStyle(fontWeight: FontWeight.w700, fontSize: textSizeMedium, color: styler.textColor())),
               monthCellStyle: DateRangePickerMonthCellStyle(
                 textStyle: TextStyle(fontWeight: FontWeight.w500, color: styler.textColor()),
-                todayTextStyle: TextStyle(fontWeight: FontWeight.w500, color: Colors.blue),
+                todayTextStyle: TextStyle(fontWeight: FontWeight.w500, color: styler.accentColor()),
               ),
               selectionTextStyle: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
               selectionMode: DateRangePickerSelectionMode.multiple,

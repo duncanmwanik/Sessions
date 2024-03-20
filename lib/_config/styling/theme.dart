@@ -78,7 +78,7 @@ class AppTheme {
       ),
       tooltipTheme: TooltipThemeData(
         decoration: BoxDecoration(
-          color: isDarkTheme ? AppColors.lightPrimary : AppColors.darkTertiary,
+          color: isDarkTheme ? AppColors.lightTertiary : AppColors.darkTertiary,
           borderRadius: BorderRadius.circular(borderRadiusTiny),
         ),
       ),

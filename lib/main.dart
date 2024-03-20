@@ -44,18 +44,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
-      //
-      // set theme to light if auth, so texts can be visible on the background images
-      //
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (isFirstTimeUser()) themeProvider.enableDarkTheme('light');
-      });
+      setGlobalProviderX(context);
       //
       // getting theme
       //
-      bool isDarkTheme = getThemeAsBoolean(themeProvider.isDarkTheme);
+      bool isDarkTheme = getThemeAsBoolean(themeProvider.themeType);
       styler.setTheme(isDarkTheme);
-      setGlobalProviderX(context);
+
+      print(themeProvider.themeImage);
+      print(themeProvider.themeType);
 
       return ResponsiveSizer(
         builder: (_, __, ___) {

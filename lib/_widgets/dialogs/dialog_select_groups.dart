@@ -11,8 +11,8 @@ import '../../_providers/_provider_variables.dart';
 import '../../features/_tables/_helpers/table_helpers.dart';
 import '../../features/_tables/_state/table_input_provider.dart';
 import '../components/icons.dart';
-import 'action_buttons.dart';
 import 'app_dialog.dart';
+import 'dialog_buttons.dart';
 
 Future showSelectTableGroupsDialog() {
   List<String> groupNames = getGroupNames();
@@ -30,14 +30,14 @@ Future showSelectTableGroupsDialog() {
           return Consumer<TableInputProvider>(
               builder: (context, inputProvider, child) => ListTile(
                     onTap: () => inputProvider.updateSelectedTableGroups(group),
-                    tileColor: styler.itemColor(isDialog: true),
+                    tileColor: styler.appColor(1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(borderRadiusSmall),
                     ),
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        AppIcon(FontAwesomeIcons.solidFolder, color: styler.textColorFaded()),
+                        AppIcon(FontAwesomeIcons.solidFolder, color: styler.textColorFaded(), size: 16),
                         mediumSpacerWidth(),
                         Flexible(child: AppText(size: medium, text: group)),
                       ],

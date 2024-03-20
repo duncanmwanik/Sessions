@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sessions/_config/styling/styler.dart';
 
 import '../../../_config/styling/breakpoints.dart';
 import '../../../_config/styling/spacing.dart';
@@ -27,7 +28,7 @@ Future<void> showTableBottomSheet({required bool isNewTable}) async {
       children: [
         //
         //
-        Image.asset('assets/images/table.png', height: smallImageHeight()),
+        Image.asset('assets/images/trw.png', height: imageSizeLarge),
         //
         //
         TableNameFormInput(isNewTable: isNewTable),

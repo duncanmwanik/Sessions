@@ -22,7 +22,7 @@ class DateButton extends StatelessWidget {
               children: [
                 //
                 //
-                AppIcon(Icons.calendar_month_rounded, faded: true, color: label.startsWith('End') ? styler.transparent : null),
+                AppIcon(Icons.calendar_month_rounded, faded: true, color: label.startsWith('End') ? styler.transparent : null, size: 18),
                 smallSpacerWidth(),
                 //
                 //

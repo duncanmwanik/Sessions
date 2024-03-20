@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sessions/_providers/_provider_variables.dart';
 import 'package:sessions/_widgets/components/icons.dart';
@@ -17,22 +16,25 @@ class DefaultLabelItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        labelsProviderX.updateSelectedLabel(label);
-        //
-        // if is from drawer or bottomsheet, we pop it
-        if (isPopable) {
-          popWhatsOnTop();
-        }
-      },
-      dense: true,
-      horizontalTitleGap: kIsWeb ? 1 : 0,
-      visualDensity: VisualDensity(horizontal: 0, vertical: -4),
-      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusLarge)),
-      leading: AppIcon(iconData, tiny: true, color: isSelected ? styler.accentColor() : styler.textColorFaded()),
-      title: AppText(size: medium, text: label),
+    return Material(
+      color: styler.transparent,
+      child: ListTile(
+        onTap: () {
+          labelsProviderX.updateSelectedLabel(label);
+          //
+          // if is from drawer or bottomsheet, we pop it
+          if (isPopable) {
+            popWhatsOnTop();
+          }
+        },
+        dense: true,
+        tileColor: isSelected ? styler.appColor(1) : null,
+        horizontalTitleGap: -8,
+        visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+        contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 1),
+        leading: AppIcon(iconData, tiny: true, faded: true, size: 16),
+        title: AppText(size: medium, fontWeight: FontWeight.w400, faded: true, text: label),
+      ),
     );
   }
 }

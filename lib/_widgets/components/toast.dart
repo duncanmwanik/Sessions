@@ -28,8 +28,8 @@ void showToast(int type, String message, {int duration = 3}) {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: styler.toastBackgroundColor(),
-          borderRadius: BorderRadius.circular(borderRadiusSmall),
-          border: styler.lightBoxBorder(),
+          borderRadius: BorderRadius.circular(borderRadiusMedium),
+          boxShadow: styler.itemShadow(),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -4,11 +4,12 @@ import 'package:sessions/_config/styling/breakpoints.dart';
 import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_helpers/_common_helpers/global_helper.dart';
 import 'package:sessions/features/auth/_state/auth_input_provider.dart';
-import 'package:sessions/features/auth/forgot_password.dart';
+import 'package:sessions/features/auth/reset_password.dart';
 import 'package:sessions/features/auth/sign_in.dart';
 import 'package:sessions/features/auth/sign_up.dart';
 
 import '../../_config/styling/spacing.dart';
+import '../../_helpers/_common_helpers/theme_helper.dart';
 import '../../_widgets/components/buttons.dart';
 import '../../_widgets/components/images.dart';
 import '../../_widgets/components/text_styles.dart';
@@ -21,7 +22,7 @@ class EmailAuthScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/sands.png'),
+          image: AssetImage(getDefaultThemeImage()),
           fit: BoxFit.cover,
         ),
       ),
@@ -49,7 +50,11 @@ class EmailAuthScreen extends StatelessWidget {
                   Container(
                     constraints: BoxConstraints(maxWidth: 500),
                     margin: EdgeInsets.symmetric(horizontal: 20),
-                    padding: EdgeInsets.only(left: isPhone() ? 5 : 30, right: isPhone() ? 5 : 30, top: 30),
+                    padding: EdgeInsets.symmetric(horizontal: isPhone() ? 5 : 30, vertical: 30),
+                    decoration: BoxDecoration(
+                      color: styler.appColor(3),
+                      borderRadius: BorderRadius.circular(borderRadiusMedium),
+                    ),
                     child: view == 0
                         ? SignInScreen()
                         : view == 1

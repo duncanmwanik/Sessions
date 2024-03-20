@@ -5,6 +5,7 @@ import 'package:sessions/_widgets/menus/menu_item.dart';
 
 import '../../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../../_widgets/components/icons.dart';
+import '../../_config/styling/helpers.dart';
 import '../../_config/styling/styler.dart';
 import '../../_helpers/edits/edit_item_extras.dart';
 import '../../_providers/_provider_variables.dart';
@@ -21,6 +22,7 @@ class HoverActionsMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey menuKey = GlobalKey();
+    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isArchive = labelsProviderX.selectedLabel == 'Archive';
@@ -32,8 +34,8 @@ class HoverActionsMore extends StatelessWidget {
           menuButton: AppIconButton(
             tooltip: 'More Actions',
             onPressed: () => openPopupMenu(menuKey),
-            Icons.more_vert_rounded,
-            color: styler.hoverActionsColor(bgColor),
+            Icons.more_horiz_rounded,
+            color: styler.textColorFaded(inverted: isColorInverted),
             size: 18,
           ),
           menuItems: [

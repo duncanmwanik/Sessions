@@ -39,7 +39,7 @@ class _ReminderItemState extends State<ReminderItem> {
                 height: 30,
                 width: 70,
                 decoration: BoxDecoration(
-                  color: styler.itemColor(),
+                  color: styler.appColor(1),
                   borderRadius: BorderRadius.circular(borderRadiusMedium),
                 ),
                 child: TextFormField(
@@ -78,9 +78,8 @@ class _ReminderItemState extends State<ReminderItem> {
                 height: 30,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                  color: styler.itemColor(),
+                  color: styler.appColor(1),
                   borderRadius: BorderRadius.circular(borderRadiusMedium),
-                  // border: Border.all(color: styler.borderColor()),
                 ),
                 child: DropdownButton(
                   value: reminderPeriodsMap[reminderPeriod],

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sessions/_helpers/_common_helpers/global_helper.dart';
@@ -10,7 +9,6 @@ import '../../../_config/styling/styler.dart';
 import '../../../_widgets/components/checkbox.dart';
 import '../../../_widgets/components/text_styles.dart';
 import '../../../_widgets/dialogs/confirmation_dialog.dart';
-import '../../_tables/_helpers/checks_table.dart';
 import '../_state/labels_provider.dart';
 
 class LabelItem extends StatefulWidget {
@@ -40,65 +38,57 @@ class _LabelItemState extends State<LabelItem> {
       key: UniqueKey(),
       confirmDismiss: (direction) => showConfirmationDialog(title: 'Delete label: <b>${widget.label}</b>?', yeslabel: 'Delete').then((value) => value),
       onDismissed: (direction) => deleteLabel(widget.label),
-      background: Container(color: styler.itemColor()),
-      child: ListTile(
-        onTap: () {
-          // add label to selection
-          if (widget.isSelection) {
-            if (labelsProviderX.selectedLabelList.contains(widget.label)) {
-              labelsProviderX.removeFromLabelList(widget.label);
-            } else {
-              labelsProviderX.addToLabelList(widget.label);
+      background: Container(color: styler.appColor(1)),
+      child: Material(
+        color: styler.transparent,
+        child: ListTile(
+          onTap: () {
+            // add label to selection
+            if (widget.isSelection) {
+              if (labelsProviderX.selectedLabelList.contains(widget.label)) {
+                labelsProviderX.removeFromLabelList(widget.label);
+              } else {
+                labelsProviderX.addToLabelList(widget.label);
+              }
             }
-          }
-          // select label
-          else {
-            labelsProviderX.updateSelectedLabel(widget.label);
-            if (widget.isPopable) {
-              popWhatsOnTop();
+            // select label
+            else {
+              labelsProviderX.updateSelectedLabel(widget.label);
+              if (widget.isPopable) {
+                popWhatsOnTop();
+              }
             }
-          }
+            //
+          },
+          dense: true,
+          horizontalTitleGap: -8,
+          tileColor: isSelected ? styler.appColor(1) : null,
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 1),
           //
-        },
-        dense: true,
-        horizontalTitleGap: kIsWeb ? 1 : 0,
-        visualDensity: VisualDensity(horizontal: 0, vertical: -4),
-        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusLarge)),
-        leading: widget.isSelection
-            ? Consumer<LabelsProvider>(builder: (context, labelsProvider, child) {
-                return CheckBoxOverview(
-                  isChecked: labelsProvider.selectedLabelList.contains(widget.label),
-                  isTiny: true,
-                  onTap: () {
-                    // add label to selection
-                    if (labelsProviderX.selectedLabelList.contains(widget.label)) {
-                      labelsProviderX.removeFromLabelList(widget.label);
-                    } else {
-                      labelsProviderX.addToLabelList(widget.label);
-                    }
-                    //
-                  },
-                );
-              })
-            : AppIcon(
-                isSelected ? Icons.label_rounded : Icons.label_outlined,
-                color: isSelected ? styler.accentColor() : null,
-              ),
-        //
-        // Label Text
-        //
-        title: AppText(size: medium, text: widget.label, overflow: TextOverflow.visible),
-        //
-        // Delete Label Icon Button
-        //
-        trailing: isTableAdmin() && isHovered
-            ? AppIconButton(
-                Icons.close_rounded,
-                size: 12,
-                onPressed: () => deleteLabel(widget.label),
-              )
-            : null,
+          leading: widget.isSelection
+              ? Consumer<LabelsProvider>(builder: (context, labelsProvider, child) {
+                  return CheckBoxOverview(
+                    isChecked: labelsProvider.selectedLabelList.contains(widget.label),
+                    isTiny: true,
+                    onTap: () {
+                      // add label to selection
+                      if (labelsProviderX.selectedLabelList.contains(widget.label)) {
+                        labelsProviderX.removeFromLabelList(widget.label);
+                      } else {
+                        labelsProviderX.addToLabelList(widget.label);
+                      }
+                      //
+                    },
+                  );
+                })
+              : AppIcon(isSelected ? Icons.label_rounded : Icons.label_outlined, size: 16),
+          //
+          // Label Text
+          //
+          title: AppText(size: medium, text: widget.label, fontWeight: FontWeight.w400, faded: true, overflow: TextOverflow.visible),
+          //
+        ),
       ),
     );
   }

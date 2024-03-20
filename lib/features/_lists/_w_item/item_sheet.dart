@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sessions/_config/styling/styler.dart';
 import 'package:sessions/_widgets/components/buttons.dart';
 import 'package:sessions/features/_lists/_w_item/item_flag_list.dart';
 import 'package:sessions/features/_lists/_w_item/menu_delete_item.dart';
@@ -59,12 +60,17 @@ Future<void> showItemBottomSheet(BuildContext context, String itemId, Map itemDa
                 //
                 if (!DeepCollectionEquality().equals(inputProvider.listItemData, inputProvider.previousListItemData))
                   AppButton(
+                      color: styler.accentColor(),
                       onPressed: () async {
                         popWhatsOnTop();
                         editListItem(inputProvider.listItemData, inputProvider.previousListItemData);
                       },
                       child: Row(
-                        children: [AppIcon(Icons.done_rounded), smallSpacerWidth(), AppText(size: medium, text: 'Save')],
+                        children: [
+                          AppIcon(Icons.done_rounded, color: styler.white),
+                          smallSpacerWidth(),
+                          AppText(size: medium, text: 'Save', textColor: styler.white),
+                        ],
                       )),
                 //
                 //

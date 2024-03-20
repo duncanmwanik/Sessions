@@ -29,7 +29,7 @@ class NewSessionDatePicker extends StatelessWidget {
                 Row(
                   children: [
                     //
-                    AppIcon(FontAwesomeIcons.calendarPlus, faded: true),
+                    AppIcon(FontAwesomeIcons.calendarPlus, faded: true, size: 18),
                     //
                     smallSpacerWidth(),
                     //
@@ -40,7 +40,7 @@ class NewSessionDatePicker extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                            AppIcon(Icons.add_rounded, size: 19),
+                            AppIcon(Icons.add_rounded, size: 16),
                             tinySpacerWidth(),
                             AppText(size: medium, text: 'Add Date'),
                           ],
@@ -54,6 +54,8 @@ class NewSessionDatePicker extends StatelessWidget {
                           await showDateRangeBottomSheet();
                         },
                         child: AppText(size: medium, text: 'Custom')),
+                    //
+                    smallSpacerWidth(),
                     //
                     Visibility(visible: inputProvider.sessionSelectedDates.isNotEmpty, child: ClearAllDatesButton()),
                     //

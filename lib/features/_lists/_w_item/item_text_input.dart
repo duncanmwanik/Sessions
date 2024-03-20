@@ -29,7 +29,7 @@ class ItemTextInput extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadiusSmall), borderSide: BorderSide.none),
         contentPadding: itemPadding(),
         filled: true,
-        fillColor: styler.itemColor(),
+        fillColor: styler.appColor(1),
       ),
     );
   }

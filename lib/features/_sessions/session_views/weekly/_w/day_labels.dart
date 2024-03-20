@@ -47,6 +47,7 @@ class WeekDayLabels extends StatelessWidget {
 
                   return Expanded(
                     child: Material(
+                      color: styler.transparent,
                       child: InkWell(
                         onTap: () async {
                           Map weekDaySessionsMap = sortSessionsByTime(Hive.box(currentSelectedTable()).get(date, defaultValue: {}));

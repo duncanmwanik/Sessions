@@ -23,12 +23,12 @@ Widget webHomeNavItem(IconData iconData, int viewNo, bool isSelected) => AppTool
         },
         borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(7),
           decoration: BoxDecoration(
-            // color: isSelected ? styler.itemColor() : null,
+            // color: isSelected ? styler.appColor(styler.isDarkTheme ? 1 : 2) : null,
             borderRadius: BorderRadius.circular(borderRadiusMediumSmall),
           ),
-          child: AppIcon(iconData),
+          child: AppIcon(iconData, size: 18),
         ),
       ),
     );
@@ -50,8 +50,8 @@ BottomNavigationBarItem homeNavBarItem(IconData iconData, String label, bool isS
       ),
     );
 
-class UserProfileButton extends StatelessWidget {
-  const UserProfileButton({Key? key}) : super(key: key);
+class UserAccountSettingsButton extends StatelessWidget {
+  const UserAccountSettingsButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

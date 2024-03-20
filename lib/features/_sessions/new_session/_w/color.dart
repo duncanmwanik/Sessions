@@ -30,7 +30,7 @@ class NewSessionColorPicker extends StatelessWidget {
             children: [
               //
               Container(
-                height: 23,
+                height: 16,
                 width: 46,
                 decoration: BoxDecoration(
                   color: sessionColorList[int.parse(input.sessionInputData['c'])].color,
@@ -40,7 +40,7 @@ class NewSessionColorPicker extends StatelessWidget {
               //
               mediumSpacerWidth(),
               //
-              AppIcon(Icons.arrow_drop_down),
+              AppIcon(Icons.arrow_drop_down, size: 16),
               //
             ],
           ),

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../_config/styling/spacing.dart';
@@ -24,14 +23,16 @@ class ListInfo extends StatelessWidget {
         children: [
           //
           // Reminder
-          if (reminder.isNotEmpty) kIsWeb ? mediumSpacerHeight() : smallSpacerHeight(),
+          if (reminder.isNotEmpty) smallSpacerHeight(),
           if (reminder.isNotEmpty) Reminder(where: 'lists', itemId: listId, reminder: reminder, bgColor: bgColor),
           //
           //
           // Label list
-          if (labels.isNotEmpty && reminder.isEmpty) smallSpacerHeight(),
-          if (labels.isNotEmpty && reminder.isNotEmpty) smallSpacerHeight(),
+          if (labels.isNotEmpty) smallSpacerHeight(),
           if (labels.isNotEmpty) LabelList(where: 'lists', itemId: listId, labelString: labels, bgColor: bgColor),
+          //
+          if (labels.isNotEmpty || reminder.isNotEmpty) smallSpacerHeight(),
+
           //
           //
         ],
