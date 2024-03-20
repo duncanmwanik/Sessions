@@ -28,7 +28,7 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String reminder = itemData['r'] ?? '';
-    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(bgColor);
 
     return Consumer<ListItemInputProvider>(builder: (cxt, inputProvider, widget) {
       bool showMiniEdits = (inputProvider.miniEditsItemId == itemId);

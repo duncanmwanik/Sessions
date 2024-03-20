@@ -36,7 +36,7 @@ class _TaskState extends State<Task> {
     bool isPinned = (widget.taskData['p'] ?? '0') == '1';
     bool isArchived = (widget.taskData['a'] ?? '0') == '1';
     bool isDeleted = (widget.taskData['x'] ?? '0') == '1';
-    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(bgColor);
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isSelection = selectionProvider.selectedItemMap.isNotEmpty;

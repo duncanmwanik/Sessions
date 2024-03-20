@@ -6,7 +6,6 @@ import 'package:sessions/_widgets/components/text_styles.dart';
 
 import '../../../_config/styling/spacing.dart';
 import '../../../_config/styling/styler.dart';
-import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_widgets/components/icons.dart';
 import '../../_tables/_helpers/checks_table.dart';
 import '../_helpers/list_item/create_list_item.dart';
@@ -28,7 +27,7 @@ class _NewItemInputState extends State<NewItemInput> {
 
   @override
   Widget build(BuildContext context) {
-    bool isColorInverted = hasBGColor(widget.bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(widget.bgColor);
 
     return Visibility(
       visible: isTableAdmin(),

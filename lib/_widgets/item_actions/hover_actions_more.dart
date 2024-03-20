@@ -22,7 +22,7 @@ class HoverActionsMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey menuKey = GlobalKey();
-    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(bgColor);
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isArchive = labelsProviderX.selectedLabel == 'Archive';

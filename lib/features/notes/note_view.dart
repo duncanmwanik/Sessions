@@ -9,9 +9,9 @@ import '../../_helpers/_common_helpers/global_helper.dart';
 import '../../_providers/common_providers/layout_provider.dart';
 import '../../_widgets/components/text_styles.dart';
 import '../../_widgets/others/empty_box.dart';
-import '../_notes_tasks/tasks/../../notes/task.dart';
 import '../_tables/_helpers/get_table_data.dart';
 import '../labels/_state/labels_provider.dart';
+import 'note.dart';
 
 class TaskView extends StatelessWidget {
   const TaskView({super.key});

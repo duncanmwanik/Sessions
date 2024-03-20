@@ -24,7 +24,7 @@ class ItemMiniEdits extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FocusNode editItemFocusNode = FocusNode();
-    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(bgColor);
 
     return Consumer<ListItemInputProvider>(builder: (cxt, inputProvider, widget) {
       String reminder = inputProvider.listItemData['r'] ?? '';

@@ -163,7 +163,7 @@ Color? getItemColor(String? colorNo, {bool? isHovered}) {
     if (colorNo != null && colorNo != 'x' && colorNo != '') {
       return itemBgColors[colorNo] ?? styler.itemColor();
     } else {
-      return styler.secondaryColor(inverted: isImageTheme());
+      return styler.secondaryColor();
       // if (isHovered == true) {
       //   return styler.secondaryColor();
       // } else {

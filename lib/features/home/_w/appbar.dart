@@ -80,6 +80,7 @@ class AppBarHome extends StatelessWidget {
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
                             fontWeight: FontWeight.w600,
+                            textColor: styler.textColor(),
                           ),
                         ),
                       ),

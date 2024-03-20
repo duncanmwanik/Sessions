@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../_config/styling/spacing.dart';
 import '../../../_widgets/components/item_actions.dart';
-import 'task_view.dart';
+import 'note_view.dart';
 
 class NTViewChooser extends StatefulWidget {
   const NTViewChooser({super.key});

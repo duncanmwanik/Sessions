@@ -59,7 +59,7 @@ class HoverActions extends StatelessWidget {
       child: Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
         bool inSelection = selectionProvider.selectedItemMap.isNotEmpty;
         bool isSelected = selectionProvider.selectedItemMap.containsKey(itemId);
-        bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+        bool isColorInverted = hasBGColor(bgColor);
 
         return SizedBox(
           height: height,

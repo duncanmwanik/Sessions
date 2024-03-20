@@ -4,7 +4,6 @@ import 'package:sessions/_widgets/others/other_widgets.dart';
 import '../../_config/styling/helpers.dart';
 import '../../_config/styling/spacing.dart';
 import '../../_config/styling/styler.dart';
-import '../../_helpers/_common_helpers/global_helper.dart';
 
 class CheckBoxOverview extends StatelessWidget {
   const CheckBoxOverview({Key? key, required this.isChecked, this.isTiny = false, this.faded = false, this.noColor = false, this.bgColor, this.onTap}) : super(key: key);
@@ -18,7 +17,7 @@ class CheckBoxOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(bgColor);
 
     return ElevatedButton(
       onPressed: onTap ?? () {},

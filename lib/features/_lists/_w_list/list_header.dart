@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../../_config/styling/helpers.dart';
 import '../../../_config/styling/styler.dart';
-import '../../../_helpers/_common_helpers/global_helper.dart';
 import '../../../_helpers/edits/edit_item_extras.dart';
 import '../../../_providers/common_providers/item_selection_provider.dart';
 import '../../../_widgets/components/icons.dart';
@@ -33,7 +32,7 @@ class ListHeader extends StatelessWidget {
 
     return Consumer<ItemSelectionProvider>(builder: (context, selectionProvider, child) {
       bool isSelection = selectionProvider.selectedItemMap.isNotEmpty;
-      bool isColorInverted = hasBGColor(bgColor) || isImageTheme();
+      bool isColorInverted = hasBGColor(bgColor);
 
       return InkWell(
         onTap: isTableAdmin()

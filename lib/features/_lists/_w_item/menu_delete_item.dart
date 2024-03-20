@@ -25,7 +25,7 @@ class _DeleteItemState extends State<DeleteItem> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey menuKey = GlobalKey();
-    bool isColorInverted = hasBGColor(widget.bgColor) || isImageTheme();
+    bool isColorInverted = hasBGColor(widget.bgColor);
 
     return AppPopupMenu(
       //

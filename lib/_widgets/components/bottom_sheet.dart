@@ -58,7 +58,7 @@ Future<void> showAppBottomSheet({
             Expanded(
               child: Card(
                 elevation: isPhone() ? 0 : 0,
-                color: showSheetAsDialog() ? styler.secondaryColor(inverted: isImageTheme()) : null,
+                color: showSheetAsDialog() ? styler.secondaryColor() : null,
                 margin: EdgeInsets.zero,
                 shape: isMinimized
                     ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadiusMedium))

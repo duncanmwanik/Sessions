@@ -1,7 +1,7 @@
 import 'package:sessions/_helpers/_common_helpers/global_helper.dart';
 import 'package:sessions/_providers/_provider_variables.dart';
 
-import '../task_sheet.dart';
+import '../note_sheet.dart';
 
 Future<void> prepareTaskForEdit(String taskId, Map taskData) async {
   taskInputProviderX.updateSelectedTaskId(taskId);
